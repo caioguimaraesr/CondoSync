@@ -28,7 +28,7 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
           <strong>🚀 Caio G. Rocha</strong>
         </a>
         <br>
-        <a href="mailto:cgr@cesar.school">📧 cgr@cesar.school</a>
+        <a href="mailto:cgr@cesar.school">cgr@cesar.school</a>
       </td>
       <td align="center">
         <a href="https://github.com/denysleo">
@@ -37,16 +37,16 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
           <strong>🌟 Denys Sales</strong>
         </a>
         <br>
-        <a href="mailto:dlos@cesar.school">📧 dlos@cesar.school</a>
+        <a href="mailto:dlos@cesar.school">dlos@cesar.school</a>
       </td>
       <td align="center">
         <a href="https://github.com/Cavalcanti-Felipe">
           <img src="https://avatars.githubusercontent.com/Cavalcanti-Felipe" alt="Felipe" width="100" style="border-radius: 50%; margin: 10px;" />
           <br>
-          <strong>💡 Felipe Cavalcanti</strong>
+          <strong>💡Felipe Cavalcanti</strong>
         </a>
         <br>
-        <a href="mailto:fmcc@cesar.school">📧 fmcc@cesar.school</a>
+        <a href="mailto:fmcc@cesar.school">fmcc@cesar.school</a>
       </td>
       <td align="center">
         <a href="https://github.com/hugoogomess">
@@ -55,10 +55,8 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
           <strong>🎨 Hugo Gomes</strong>
         </a>
         <br>
-        <a href="mailto:htng@cesar.school">📧 htng@cesar.school</a>
+        <a href="mailto:htng@cesar.school">htng@cesar.school</a>
       </td>
-      </tr>
-      <tr>
       <td align="center">
         <a href="https://github.com/mateusdinizz">
           <img src="https://avatars.githubusercontent.com/mateusdinizz" alt="Mateus" width="100" style="border-radius: 50%; margin: 10px;" />
@@ -66,7 +64,7 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
           <strong>💻 Mateus Diniz</strong>
         </a>
         <br>
-        <a href="mailto:mdls@cesar.school">📧 mdls@cesar.school</a>
+        <a href="mailto:mdls@cesar.school">mdls@cesar.school</a>
       </td>
       <td align="center">
         <a href="https://github.com/rafaferraz05">
@@ -75,7 +73,7 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
           <strong>🏆 Rafael Ferraz</strong>
         </a>
         <br>
-        <a href="mailto:rfs6@cesar.school">📧 rfs6@cesar.school</a>
+        <a href="mailto:rfs6@cesar.school">rfs6@cesar.school</a>
       </td>
     </tr>
   </table>
@@ -98,7 +96,8 @@ Inclui gestão de funcionários, controle de encomendas e outras funcionalidades
 
 
 ## 🛠️ Tecnologias
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" height="40" alt="django logo"  />
   <img width="12" />
@@ -106,10 +105,10 @@ Inclui gestão de funcionários, controle de encomendas e outras funcionalidades
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" height="40" alt="selenium logo"  />
-  <img width="12" />
+</div>
 
 ## 📌 Ferramentas  
 
@@ -130,7 +129,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
 ## 📂 Entregas
 
 <details>
-  <summary><strong>Primeira entrega</strong></summary>
+  <summary><h2><strong>Primeira entrega</strong></h2></summary>
   <br>
   <p align="center">
    <a href="https://fds-project.atlassian.net/jira/your-work">
@@ -156,16 +155,16 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
 </details>
 
 <details>
-  <summary><strong>Segunda entrega</strong></summary>
+  <summary><h2><strong>Segunda entrega</strong></h2></summary>
 
 </details>
 
 <details>
-  <summary><strong>Terceira entrega</strong></summary>
+  <summary><h2><strong>Terceira entrega</strong></h2></summary>
 
 </details>
 
 <details>
-  <summary><strong>Quarta entrega</strong></summary>
+  <summary><h2><strong>Quarta entrega</strong></h2></summary>
 
 </details>
