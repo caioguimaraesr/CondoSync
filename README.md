@@ -147,10 +147,12 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
   </p>
 
   ### Quadro
-  ![print_jira]("")
+  ![quadro_1](https://github.com/user-attachments/assets/89b69321-10e0-4595-a95a-d96f9f4874d5)
+  ![quadro_2](https://github.com/user-attachments/assets/dd57e552-0295-4fdf-a124-30fb7f4b4bbe)
+  
 
   ### Backlog
-  ![print_backlog]("")
+  ![backlog](https://github.com/user-attachments/assets/6b068967-5b90-4ad4-ab47-7a9aa9318dd9)
 
 </details>
 
