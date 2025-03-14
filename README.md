@@ -141,7 +141,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
     <a href="https://www.figma.com/design/KeudefPeoHdoeixJhfmHkA/CondoSync---Lo-FI?node-id=0-1&t=DnLuCIuR4Qix4GJ4-1">
     <img src="https://img.shields.io/badge/FIGMA%20-purple?style=for-the-badge&logo=figma&logoColor=white" />
     </a>
-    <a href="https://docs.google.com/document/d/SEU_ID_AQUI">
+    <a href="https://docs.google.com/document/d/1mXsX7gAYGkSd2YmE1AfkiUCve0DFyyDYtASklx63PmA/edit?usp=sharing">
     <img src="https://img.shields.io/badge/Histórias-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
 </a>
   </p>
