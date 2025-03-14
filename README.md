@@ -1,4 +1,8 @@
-# CondoSync
+<h1 align="center">
+  CondoSync
+</h1>
+
+![logo-condosync](https://github.com/user-attachments/assets/b3140a5b-24a5-40ad-988c-ebf676b4dc33)
 
 <br>
 <p align="center">
@@ -92,9 +96,6 @@ Facilita o registro e acompanhamento de problemas no condomínio, garantindo sol
 ### 📅 Outros Recursos  
 Inclui gestão de funcionários, controle de encomendas e outras funcionalidades para otimizar a administração.  
 
-  
-
-
 ## 🛠️ Tecnologias
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
@@ -108,6 +109,8 @@ Inclui gestão de funcionários, controle de encomendas e outras funcionalidades
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" height="40" alt="selenium logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" height="40" alt="sqlite logo"  />
 </div>
 
 ## 📌 Ferramentas  
