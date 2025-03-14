@@ -132,7 +132,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
 ## 📂 Entregas
 
 <details>
-  <summary><h2><strong>Primeira entrega</strong></h2></summary>
+  <summary><h2><strong>Entrega 1</strong></h2></summary>
   <br>
   <p align="center">
    <a href="https://fds-project.atlassian.net/jira/your-work">
@@ -158,16 +158,16 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
 </details>
 
 <details>
-  <summary><h2><strong>Segunda entrega</strong></h2></summary>
+  <summary><h2><strong>Entrega 2</strong></h2></summary>
 
 </details>
 
 <details>
-  <summary><h2><strong>Terceira entrega</strong></h2></summary>
+  <summary><h2><strong>Entrega 3</strong></h2></summary>
 
 </details>
 
 <details>
-  <summary><h2><strong>Quarta entrega</strong></h2></summary>
+  <summary><h2><strong>Entrega 4</strong></h2></summary>
 
 </details>
