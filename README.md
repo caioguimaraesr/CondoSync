@@ -29,7 +29,7 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
         <a href="https://github.com/caioguimaraesr">
           <img src="https://avatars.githubusercontent.com/caioguimaraesr" alt="Caio" width="100" style="border-radius: 50%; margin: 10px;" />
           <br>
-          <strong>🚀 Caio G. Rocha</strong>
+          <strong style="font-size: 12px;">🚀 Caio G Rocha</strong>
         </a>
         <br>
         <a href="mailto:cgr@cesar.school">cgr@cesar.school</a>
@@ -47,7 +47,7 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
         <a href="https://github.com/Cavalcanti-Felipe">
           <img src="https://avatars.githubusercontent.com/Cavalcanti-Felipe" alt="Felipe" width="100" style="border-radius: 50%; margin: 10px;" />
           <br>
-          <strong>💡Felipe Cavalcanti</strong>
+          <strong>💡Felipe de Mello</strong>
         </a>
         <br>
         <a href="mailto:fmcc@cesar.school">fmcc@cesar.school</a>
