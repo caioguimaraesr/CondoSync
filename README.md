@@ -12,7 +12,7 @@
   <a href="https://fds-project.atlassian.net/jira/your-work">
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
   </a>
-  <a href="#">
+  <a href="https://www.youtube.com/playlist?list=PLeHBP6nFOf9jqq0qquZCcB6b7QM5YPM75">
     <img src="https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 </p>
@@ -85,7 +85,7 @@ O CondoSync é um aplicativo de gestão condominial desenvolvido como uma aplica
 
 ## ⚡ Funcionalidades  
 
-### 📄 Geração de Boletos  
+### 📄 Gerador de Boletos  
 Automatiza a criação de boletos para os moradores, garantindo praticidade na cobrança e no pagamento.  
 ### ⚽ Reserva da Área Comum  
 Permite que os moradores agendem espaços compartilhados, evitando conflitos e facilitando a organização.  
@@ -138,7 +138,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
    <a href="https://fds-project.atlassian.net/jira/your-work">
       <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
     </a>
-    <a href="#">
+    <a href="https://youtu.be/wFoB4s8Aknc">
       <img src="https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
     </a>
     <a href="https://www.figma.com/design/KeudefPeoHdoeixJhfmHkA/CondoSync---Lo-FI?node-id=0-1&t=DnLuCIuR4Qix4GJ4-1">
