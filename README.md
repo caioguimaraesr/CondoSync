@@ -138,7 +138,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
    <a href="https://fds-project.atlassian.net/jira/your-work">
       <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
     </a>
-    <a href="https://youtu.be/wFoB4s8Aknc">
+    <a href="https://youtu.be/bz5y_CFMdiE">
       <img src="https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
     </a>
     <a href="https://www.figma.com/design/KeudefPeoHdoeixJhfmHkA/CondoSync---Lo-FI?node-id=0-1&t=DnLuCIuR4Qix4GJ4-1">
