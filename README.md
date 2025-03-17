@@ -130,6 +130,9 @@ Inclui gestão de funcionários, controle de encomendas e outras funcionalidades
 Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/MIT)**.
 
 ## 📂 Entregas
+  <a href="https://www.canva.com/design/DAGiBdC1WcA/A3EMCJ2hd7woIregv6KUEA/edit?utm_content=DAGiBdC1WcA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">
+    <img src="https://img.shields.io/badge/Kickoff-084d6e?style=for-the-badge&logo=canva&logoColor=white" />
+  </a>
 
 <details>
   <summary><h2><strong>Entrega 1</strong></h2></summary>
@@ -147,6 +150,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
     <a href="https://docs.google.com/document/d/1mXsX7gAYGkSd2YmE1AfkiUCve0DFyyDYtASklx63PmA/edit?usp=sharing">
     <img src="https://img.shields.io/badge/Histórias-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
 </a>
+    
   </p>
 
   ### Quadro
