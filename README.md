@@ -150,10 +150,11 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
   </p>
 
   ### Quadro
-  ![quadro](https://github.com/user-attachments/assets/ea803bec-140a-4e3a-b2b4-766ccc720712)
+  ![quadro1](https://github.com/user-attachments/assets/26add18d-9b3a-47df-85f4-23ca87ffb1a5)
+  ![quadro2](https://github.com/user-attachments/assets/57af6803-b52f-4bce-8f1c-f03af47d93a5)
 
   ### Backlog
-  ![backlog](https://github.com/user-attachments/assets/e6e967df-0e85-4366-9e3c-64d9760fbd6f)
+  ![backlog](https://github.com/user-attachments/assets/6644c9a6-0bf7-4015-9798-43d73ff21587)
 
 </details>
 
