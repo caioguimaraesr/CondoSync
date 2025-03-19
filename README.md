@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
   </a>
   <a href="https://www.youtube.com/playlist?list=PLeHBP6nFOf9jqq0qquZCcB6b7QM5YPM75">
-    <img src="https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+    <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 </p>
 
@@ -142,7 +142,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
       <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
     </a>
     <a href="https://youtu.be/bz5y_CFMdiE">
-      <img src="https://img.shields.io/badge/Youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+      <img src="https://img.shields.io/badge/Screencast-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
     </a>
     <a href="https://www.figma.com/design/KeudefPeoHdoeixJhfmHkA/CondoSync---Lo-FI?node-id=0-1&t=DnLuCIuR4Qix4GJ4-1">
     <img src="https://img.shields.io/badge/FIGMA%20-purple?style=for-the-badge&logo=figma&logoColor=white" />
