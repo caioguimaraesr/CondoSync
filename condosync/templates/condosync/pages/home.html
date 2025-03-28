@@ -108,6 +108,83 @@
 
         </main>
         <!-- main section end -->
-         
+
+        <!-- right section start -->
+        <div class="right">
+
+            <div class="top">
+                <button id="menu_bar">
+                    <i class='bx bx-menu' ></i>
+                </button>
+                <div class="theme-toggler">
+                    <i class='bx bx-sun active' ></i>
+                    <i class='bx bx-moon' ></i>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p><b>Maurício</b></p>
+                        <p>1001</p>
+                        <small class="text-muted"></small>
+                    </div>
+                    <a href="">
+                        <div class="profile-photo">
+                            <img src="images/Profile Photo.png" alt="profile photo">
+                        </div>
+                    </a>
+                </div>
+            
+            </div>
+            <!-- end top -->
+
+            <!-- start calendar -->
+            <div class="calendar">
+                <h2>Calendário</h2>
+                <div class="calendar-container">
+                    <div class="header">
+                        <button id="prevMonth">&lt;</button>
+                        <h2 id="monthYear"></h2>
+                        <button id="nextMonth">&gt;</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- end calendar -->
+
+            <!-- start registration -->
+            <div class="registration">
+                <h2>Acesso rápido</h2>
+                <a href="#">
+                    <div class="item onlion">
+                        <div class="icon">
+                            <i class='bx bxs-book'></i>
+                        </div>
+                        <h3>Regimento Interno</h3>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="registration">
+                <a href="#">
+                    <div class="item onlion">
+                        <div class="icon">
+                            <i class='bx bx-building-house' ></i>
+                        </div>
+                        <h3>Localização</h3>
+                    </div>
+                </a>
+            </div>
+            <!-- end registration -->
+        </div>
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
 </body>
 </html>
