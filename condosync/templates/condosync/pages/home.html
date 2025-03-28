@@ -12,53 +12,7 @@
 <body>
     <div class="container">
         <!-- side bar section star -->
-        <aside>
-
-            <div class="top">
-                <div class="logo">
-                    <img src="{% static "condosync/images/CondoSync (png).png" %}" alt="CondoSync logo">
-                    <h2>CONDOSYNC</h2>
-                </div>
-            </div>
-            <!-- end top -->
-
-            <div class="sidebar">
-                <h4>Menu Principal</h4>
-                <a href="#">
-                    <i class='bx bx-home-alt' ></i>
-                    <h3>Home</h3>
-                </a>
-                <a href="#">
-                    <i class='bx bx-bell'></i>
-                    <h3>Avisos</h3>
-                </a>
-                <a href="#">
-                    <i class='bx bx-pencil' ></i>
-                    <h3>Ocorrências</h3>
-                </a>
-                <a href="#">
-                    <i class='bx bxs-file-doc' ></i>
-                    <h3>Boletos</h3>
-                </a>
-                <a href="#">
-                    <i class='bx bx-football' ></i>
-                    <h3>Reservas</h3>
-                </a>
-                <a href="#">
-                    <i class='bx bxs-user'></i>
-                    <h3>Funcionarios</h3>
-                </a>
-                <a href="#">
-                    <i class='bx bx-door-open'></i>
-                    <h3>Visitantes</h3>
-                </a>
-                <a href="#">
-                    <i class='bx bx-log-out' ></i>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-            
-        </aside>
+        {% include "condosync/partials/sidebar.html" %}
         <!-- side bar section end -->
 
         <!-- main section start -->
@@ -176,7 +130,7 @@
                         <div class="icon">
                             <i class='bx bx-building-house' ></i>
                         </div>
-                        <h3>Localização</h3>
+                        <h3>Endereço</h3>
                     </div>
                 </a>
             </div>
