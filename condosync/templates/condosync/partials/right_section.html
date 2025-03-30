@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="right">
 
     <div class="top">
@@ -10,13 +12,13 @@
         </div>
         <div class="profile">
             <div class="info">
-                <p><b>Maurício</b></p>
-                <p>1001</p>
+                <p><b>{{ user.first_name }}</b></p>
+                <p>2003</p>
                 <small class="text-muted"></small>
             </div>
-            <a href="">
+            <a href="#">
                 <div class="profile-photo">
-                    <img src="#" alt="profile photo">
+                    <img src="{% static "condosync/images/github photo.png" %}" alt="profile photo">
                 </div>
             </a>
         </div>
