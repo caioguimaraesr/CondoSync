@@ -12,7 +12,11 @@
         </div>
         <div class="profile">
             <div class="info">
-                <p><b>{{ user.first_name }}</b></p>
+                {% if user.first_name %}
+                    <p><b>{{ user.first_name }}</b></p>
+                {% else %}
+                    <p><b>{{ user }}</b></p>
+                {% endif %}
                 <p>2003</p>
                 <small class="text-muted"></small>
             </div>
