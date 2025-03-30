@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação | CondoSync</title>
+    <link rel="stylesheet" href="{% static "userauth/css/style.css" %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="register">
+                <h1>Cadastre-se</h1>
+                <div class="input-row">
+                    <input type="text" name="first_name" placeholder="Nome">
+                    <input type="text" name="last_name" placeholder="Sobrenome">
+                </div>
+                <div class="input-row">
+                    <input type="text" name="username" placeholder="Usuário">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="input-row">
+                    <input type="password" name="password" placeholder="Senha">
+                    <input type="password" name="confirm_password" placeholder="Confirmar senha">
+                </div>
+
+                <div class="input-box">
+                    <div class="check-box">
+                        <input type="checkbox" name="admin" id="admin" onchange="toggleAdminPassword()">
+                        <label for="admin">Admin</label>
+                        <div id="admin-password-field" style="display: none;">
+                            <input type="password" name="admin_password" id="admin_password" placeholder="Senha do administrador">
+                        </div>
+                    </div>     
+                    <div class="check-box-usuario">
+                        <input type="checkbox" name="usuario" id="usuario">
+                        <label for="usuario">Usuário</label>
+                    </div>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="login">
+                <h1>Login</h1>
+                {% include "userauth/partials/messages.html" %}
+                <input type="text" name="username" placeholder="Usuário">
+                <input type="password" name="password" placeholder="Senha">
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1><img src="{% static "userauth/images/CondoSync.png" %}" alt="">CONDOSYNC</h1>
+                    <p>Clique em 'Entrar' para acessar a sua conta.</p>
+                    <button class="hidden" id="login">Entrar</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1><img src="{% static "userauth/images/CondoSync.png" %}" alt="">CONDOSYNC</h1>
+                    <h1></h1>
+                    <p>Não possui uma conta? Clique em 'Cadastre-se' para criar</p>
+                    <button class="hidden" id="register">CADASTRE-SE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static "userauth/js/scripts.js" %}"></script>
+</body>
+</html>
