@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Home</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+
+            <div class="dashboard">
+                <i class='bx bxs-file-doc' ></i>
+                <h1>BOLETOS</h1>
+            </div>
+            {% if user.is_superuser %}
+            <div class="form-boletos">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% include "userauth/partials/messages.html" %}
+                    <label for="apartamento">Apartamento:</label>
+                    <select name="apartamento" required>
+                        {% for apartamento in apartamentos %}
+                            <option value="{{ apartamento.id }}">APTO{{ apartamento.numero }} - {{ apartamento.morador.username }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <input type="text" name="mes_referencia" placeholder="Mês de Referência" required>
+                    
+                    <label for="arquivo">Upload do Boleto:</label>
+                    <input type="file" name="arquivo" required>
+                    
+                    <button type="submit">Enviar Boleto</button>
+                </form>
+            </div>
+            {% else %}
+            <div class="box-main-boletos">
+                {% for boleto in boletos %}
+                <div class="text">
+                    <h2>{{ boleto.mes_referencia }}</h2>
+                    <i class="bx bx-box"></i>
+                    <a href="{{ boleto.arquivo.url }}" download class="btn-download">DOWNLOADS</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>
