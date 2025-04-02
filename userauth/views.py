@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 def login_register_view(request):
     if request.method == 'POST':
@@ -73,3 +73,8 @@ def login_register_view(request):
                 return redirect('userauth:login_register')
 
     return render(request, 'userauth/pages/login_register.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Logout realizado com sucesso!')
+    return redirect('userauth:login_register')
