@@ -36,14 +36,19 @@
             <i class='bx bxs-user'></i>
             <h3>Funcionarios</h3>
         </a>
+        {% if user.is_superuser %}
         <a href="#">
             <i class='bx bx-door-open'></i>
             <h3>Visitantes</h3>
         </a>
-        <a href="#">
-            <i class='bx bx-log-out' ></i>
-            <h3>Logout</h3>
-        </a>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <a href="{% url "userauth:logout" %}">
+                <i class='bx bx-log-out' ></i>
+                <h3>Logout</h3>
+            </a>
+        </form>
     </div>
     
 </aside>
