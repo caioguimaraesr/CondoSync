@@ -137,6 +137,8 @@ STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+from django.contrib.messages import constants
+
 MESSAGE_TAGS = {
     constants.DEBUG: 'message-debug',
     constants.ERROR: 'message-error',
