@@ -6,7 +6,7 @@
 
 <br>
 <p align="center">
-  <a href="#">
+  <a href="https://condosync.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
