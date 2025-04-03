@@ -17,7 +17,7 @@ if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = '<A SECRET KEY DO SEU PROJETO>'
+    SECRET_KEY = 'django-insecure-5-mwbv9t5j-_0e6_$1*7^g!#cid_6@c1zg3lph1p$)mn8hk1zv'
     ALLOWED_HOSTS = []
     DATABASES = {
         'default': {
