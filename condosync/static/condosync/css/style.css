@@ -382,12 +382,11 @@ main .box-main-boletos .text {
     padding: 20px;
     border-radius: var(--border-radius-3);
     margin-top: 10px;
-    
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: center;
-    gap: 10px; 
+    gap: 10px;
 }
 
 main .box-main-boletos .text i {
@@ -435,27 +434,12 @@ main .box-main-boletos a i:hover {
 }
 
 /*** form boletos ***/
-.form-boleto form {
-    background: var(--clr-white);
-    padding: var(--card-padding);
-    border-radius: var(--border-radius-2);
-    box-shadow: var(--box-shadow);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 400px;
-    margin: auto;
-}
-
-/* Labels */
 .form-boletos form label {
     font-size: 1rem;
     font-weight: 600;
     color: var(--clr-dark);
 }
 
-/* Campos de entrada */
-/* Estilização do Formulário */
 .form-boletos form {
     background: #fff;
     padding: 20px;
@@ -468,14 +452,12 @@ main .box-main-boletos a i:hover {
     margin-top: 30px;
 }
 
-/* Labels */
 .form-boletos form label {
     font-size: 16px;
     font-weight: 600;
     color: #333;
 }
 
-/* Campos de entrada e seleção */
 .form-boletos form input,
 .form-boletos form select {
     width: 100%;
@@ -487,12 +469,10 @@ main .box-main-boletos a i:hover {
     font-size: 14px;
 }
 
-/* Placeholder */
 .form-boletos form input::placeholder {
     color: #888;
 }
 
-/* Efeito ao focar */
 .form-boletos form input:focus,
 .form-boletos form select:focus {
     border-color: #007bff;
@@ -500,7 +480,6 @@ main .box-main-boletos a i:hover {
     outline: none;
 }
 
-/* Botão de envio */
 .form-boletos form button {
     background: var(--clr-primary);
     color: #fff;
@@ -512,11 +491,270 @@ main .box-main-boletos a i:hover {
     transition: background 0.3s ease;
 }
 
-/* Efeito no hover do botão */
 .form-boletos form button:hover {
     background: var(--clr-primary-variant);
 }
 
+/***************** main avisos ********************/
+
+/* box-main-avisos */
+main .box-main-avisos{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.6rem;
+    margin-top: 1rem;
+}
+
+main .box-main-avisos .text{
+    background-color: var(--clr-white);
+    padding: 20px;
+    border-radius: var(--border-radius-3);
+    margin-top: 10px;
+}
+
+main .box-main-avisos h1{
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+main .box-main-avisos h2{
+    color: var(--clr-dark);
+}
+
+main .box-main-avisos a i {
+    margin-right: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+main .box-main-avisos a i:hover {
+    transform: scale(1.1);
+    color: var(--clr-primary);
+}
+
+/* form create avisos */
+.form-avisos form {
+    background-color: var(--clr-white);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius-2);
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-avisos form h1 {
+    font-size: 1.5rem;
+    color: var(--clr-dark);
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.form-avisos form label {
+    font-size: 0.9rem;
+    color: var(--clr-dark-variant);
+    font-weight: 500;
+    margin-bottom: -0.8rem;
+}
+
+.form-avisos form input[type="text"],
+.form-avisos form textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--clr-info-light);
+    background-color: var(--clr-color-background);
+    color: var(--clr-dark);
+    transition: border 0.2s ease;
+}
+
+.form-avisos form input[type="text"]:focus,
+.form-avisos form textarea:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+}
+
+.form-avisos form button[type="submit"] {
+    padding: 0.8rem;
+    background-color: var(--clr-primary);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-avisos form button[type="submit"]:hover {
+    background-color: var(--clr-primary-variant);
+}
+
+.form-avisos form a {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--clr-danger);
+    text-decoration: underline;
+    margin-top: 1rem;
+}
+
+.bnt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-adicionar-aviso {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    background-color: var(--clr-primary);
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-adicionar-aviso:hover {
+    background-color: var(--clr-primary-variant);
+}
+
+.btn-adicionar-aviso i {
+    font-size: 18px;
+}
+
+/********************* form delete avisos ************************/
+.confirm-box {
+    background-color: var(--clr-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.confirm-box h2 {
+    font-size: 1.5rem;
+    color: var(--clr-dark);
+    margin-bottom: 1rem;
+}
+
+.confirm-box p {
+    font-size: 1rem;
+    color: var(--clr-dark-variant);
+    margin-bottom: 2rem;
+}
+
+.confirm-box .btn {
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--border-radius-1);
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-box .btn-confirm {
+    background-color: var(--clr-danger);
+    color: white;
+    border: none;
+}
+
+.confirm-box .btn-confirm:hover {
+    background-color: #d73838;
+}
+
+.confirm-box .btn-cancel {
+    background-color: var(--clr-info-light);
+    color: var(--clr-dark);
+}
+
+.confirm-box .btn-cancel:hover {
+    background-color: #e1e1e1;
+}
+
+/************************ form edit avisos **************************/
+.form-edit-avisos {
+    background-color: var(--clr-white);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius-2);
+    width: 100%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-edit-avisos h1 {
+    font-size: 1.5rem;
+    color: var(--clr-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.form-edit-avisos label {
+    font-size: 0.9rem;
+    color: var(--clr-dark-variant);
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.form-edit-avisos input[type="text"],
+.form-edit-avisos textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--clr-info-light);
+    background-color: var(--clr-color-background);
+    color: var(--clr-dark);
+    transition: border 0.2s ease;
+    margin-top: 0.4rem;
+}
+
+.form-edit-avisos input[type="text"]:focus,
+.form-edit-avisos textarea:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+}
+
+.form-edit-avisos button[type="submit"] {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    background-color: var(--clr-primary);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+}
+
+.form-edit-avisos button[type="submit"]:hover {
+    background-color: var(--clr-primary-variant);
+}
+
+.form-edit-avisos a {
+    display: block;
+    margin: 2rem auto 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--clr-primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-edit-avisos a:hover {
+    text-decoration: underline;
+}
 
 /*************************************************
               RIGHT SECTION STYLE
