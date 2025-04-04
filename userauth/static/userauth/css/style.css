@@ -261,6 +261,16 @@ body{
     width: 50%;
 }
 
+.input-row select {
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background-color: #eee;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 12px;
+    margin-top: 8px;
+}
 
 .check-box-usuario,
 .check-box {

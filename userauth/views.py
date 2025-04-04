@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from condosync.models import Apartamento
 
 def login_register_view(request):
     if request.method == 'POST':
@@ -14,6 +15,7 @@ def login_register_view(request):
             email = request.POST.get('email')
             password = request.POST.get('password')
             confirm_password = request.POST.get('confirm_password')
+            apartamento_id = request.POST.get('apartamento')
 
             admin = request.POST.get('admin')  
             usuario = request.POST.get('usuario')  
@@ -47,7 +49,7 @@ def login_register_view(request):
                 messages.success(request, 'Usuário administrador cadastrado com sucesso.')
                 return redirect('userauth:login_register')
 
-            elif usuario: 
+            elif usuario:
                 user = User.objects.create_user(
                     username=username,
                     email=email,
@@ -56,6 +58,12 @@ def login_register_view(request):
                     last_name=last_name
                 )
                 user.save()
+
+                if apartamento_id:
+                    apartamento = Apartamento.objects.get(id=apartamento_id)
+                    apartamento.morador = user
+                    apartamento.save()
+
                 messages.success(request, "Cadastro realizado com sucesso! Faça login.")
                 return redirect('userauth:login_register')
 
@@ -72,7 +80,11 @@ def login_register_view(request):
                 messages.error(request, "Credenciais inválidas. Tente novamente.")
                 return redirect('userauth:login_register')
 
-    return render(request, 'userauth/pages/login_register.html')
+    apartamentos_disponiveis = Apartamento.objects.filter(morador__isnull=True)
+    
+    return render(request, 'userauth/pages/login_register.html', context={
+        'apartamentos':apartamentos_disponiveis
+    })
 
 def logout_view(request):
     logout(request)

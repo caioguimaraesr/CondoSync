@@ -28,6 +28,14 @@
                     <input type="password" name="password" placeholder="Senha">
                     <input type="password" name="confirm_password" placeholder="Confirmar senha">
                 </div>
+                <div class="input-row">
+                    <select name="apartamento" required>
+                        <option value="" selected disabled>Selecione seu apartamento</option>
+                        {% for apto in apartamentos %}
+                            <option value="{{ apto.id }}">Apartamento {{ apto.numero }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
                 <div class="input-box">
                     <div class="check-box">

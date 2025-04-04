@@ -611,6 +611,7 @@ main .box-main-boletos a i:hover {
 .right .registration .item h3 {
     font-size: 1.2rem;
     flex-grow: 1; 
+    font-weight: 600;
 }
 
 .right .registration .item:hover{
