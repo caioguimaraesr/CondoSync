@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CondoSync | Home</title>
+    <title>CondoSync | Boletos</title>
     <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -27,6 +27,7 @@
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% include "userauth/partials/messages.html" %}
+                    <h1 style="text-align: center; ">Cadastrar Boletos</h1>
                     <label for="apartamento">Apartamento:</label>
                     <select name="apartamento" required>
                         {% for apartamento in apartamentos %}
