@@ -33,6 +33,10 @@ def login_register_view(request):
                 messages.error(request, "Este e-mail já está registrado.")
                 return redirect('userauth:login_register')
 
+            if not admin and not usuario:
+                messages.error(request, "Selecione uma opção: Admin ou Usuário.")
+                return redirect('userauth:login_register')
+
             if admin:
                 if admin_password != 'senha':
                     messages.error(request, 'Senha de administrador incorreta.')
