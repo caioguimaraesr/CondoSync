@@ -27,3 +27,12 @@ class Aviso(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Encomenda(models.Model):
+    apartamento = models.ForeignKey(Apartamento, on_delete=models.CASCADE)
+    peso_kg = models.DecimalField(max_digits=6, decimal_places=2) 
+    origem = models.CharField(max_length=255)
+    data_chegada = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return f"Encomenda - APTO{self.apartamento.numero}"
