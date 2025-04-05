@@ -176,6 +176,15 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
     <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 </p>
+
+## Issues/Bugtracker
+![Issues/Bugtracker](https://github.com/user-attachments/assets/5e8075d7-8984-452f-b698-42ec5290bda6)
+
+## Backlog
+![Backlog](https://github.com/user-attachments/assets/ceb48465-2f0a-40f6-8b99-4edd1e2140c3)
+
+## Quadro
+![Quadro](https://github.com/user-attachments/assets/d8c1fa6a-da46-4464-9e4f-2bda9470e053)
   
 </details>
 
