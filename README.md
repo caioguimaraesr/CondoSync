@@ -164,7 +164,19 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
 
 <details>
   <summary><h2><strong>Entrega 2</strong></h2></summary>
-
+  <br>
+  <p align="center">
+  <a href="https://condosync.azurewebsites.net/">
+    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
+  </a>
+  <a href="https://fds-project.atlassian.net/jira/your-work">
+    <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+</p>
+  
 </details>
 
 <details>
