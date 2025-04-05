@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso
+from .models import Boleto, Apartamento, Aviso, Encomenda
 from django.contrib import messages
 from django.utils import timezone
 # Create your views here.
@@ -9,6 +9,7 @@ def is_admin(user):
         return False 
     return True
 
+########################### Home Page ###################################
 @login_required(login_url='userauth:login_register')
 def home(request):
     return render(request, 'condosync/pages/home.html')
@@ -77,7 +78,8 @@ def edit_avisos(request, id):
         aviso.save()
         return redirect('condosync:avisos')
     return render(request, 'condosync/pages/avisos/edit_avisos.html', context={
-        'aviso': aviso, 'acao': 'Editar'
+        'aviso': aviso, 
+        'acao': 'Editar'
         })
 
 @login_required(login_url='userauth:login_register')
@@ -91,3 +93,69 @@ def delete_avisos(request, id):
     return render(request, 'condosync/pages/avisos/delete_avisos.html', context={
         'aviso': aviso
         })
+
+############################### Encomendas ##############################################
+@login_required(login_url='condosync:login_register')
+def encomendas(request):
+    encomendas = Encomenda.objects.select_related('apartamento__morador').order_by('-data_chegada')
+    return render(request, 'condosync/pages/encomendas/encomendas.html', {
+        'encomendas': encomendas
+    })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:avisos')
+def create_encomendas(request):
+    apartamentos = Apartamento.objects.all()
+
+    if request.method == 'POST':
+        apartamento_id = request.POST.get('apartamento')
+        peso_kg = request.POST.get('peso_kg')
+        origem = request.POST.get('origem')
+
+        if apartamento_id and peso_kg and origem:
+            Encomenda.objects.create(
+                apartamento=Apartamento.objects.get(id=apartamento_id),
+                peso_kg=peso_kg,
+                origem=origem,
+                data_chegada=timezone.now(),
+            )
+            return redirect('condosync:encomendas')
+
+    return render(request, 'condosync/pages/encomendas/create_encomendas.html', context={
+        'apartamentos': apartamentos
+        })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:avisos')
+def edit_encomendas(request, id):
+    encomenda = get_object_or_404(Encomenda, id=id)
+    apartamentos = Apartamento.objects.all()
+
+    if request.method == 'POST':
+        apartamento_id = request.POST.get('apartamento')
+        peso_kg = request.POST.get('peso_kg')
+        origem = request.POST.get('origem')
+
+        if apartamento_id and peso_kg and origem:
+            encomenda.apartamento = get_object_or_404(Apartamento, id=apartamento_id)
+            encomenda.peso_kg = peso_kg
+            encomenda.origem = origem
+            encomenda.save()
+            return redirect('condosync:encomendas')
+
+    return render(request, 'condosync/pages/encomendas/edit_encomendas.html', {
+        'encomenda': encomenda,
+        'apartamentos': apartamentos,
+        'editando': True
+    })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:avisos')
+def delete_encomendas(request, id):
+    encomenda = get_object_or_404(Encomenda, id=id)
+    if request.method == 'POST':
+        encomenda.delete()
+        return redirect('condosync:encomendas')
+    return render(request, 'condosync/pages/encomendas/delete_encomendas.html', context={
+        'encomenda':encomenda
+    })
