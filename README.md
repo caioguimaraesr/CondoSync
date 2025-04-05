@@ -172,7 +172,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
   <a href="https://fds-project.atlassian.net/jira/your-work">
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
   </a>
-  <a href="#">
+  <a href="https://youtu.be/Xd9rIG3z3AA">
     <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 </p>
