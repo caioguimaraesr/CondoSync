@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Avisos</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-bell' ></i>
+                <h1>AVISOS</h1>
+            </div>
+            
+            <form method="POST" class="form-edit-avisos">
+                {% csrf_token %}
+                <h1>Editar aviso</p></h1>      
+                <label for="titulo">Título do Aviso:</label>
+                <input type="text" id="titulo" name="titulo" value="{{ aviso.titulo }}" required>
+                
+                <label for="conteudo">Conteúdo do Aviso:</label>
+                <textarea id="conteudo" name="conteudo" rows="6" required>{{ aviso.conteudo }}</textarea>
+                
+                <button type="submit">Salvar Alterações</button>
+                <a href="{% url 'condosync:avisos' %}">← Voltar para a lista de avisos</a>
+            </form>
+
+
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>

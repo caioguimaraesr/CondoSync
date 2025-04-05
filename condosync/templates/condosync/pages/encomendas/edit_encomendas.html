@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Encomendas</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+
+            <div class="dashboard">
+                <i class='bx bxs-box' ></i>
+                <h1>RETIRADA DE ENCOMENDAS</h1>
+            </div>
+            
+            <form method="POST" class="form-edit-encomendas">
+                {% csrf_token %}
+                <h1>Editar Encomenda</h1>
+            
+                <label for="apartamento">Apartamento:</label>
+                <select id="apartamento" name="apartamento" required>
+                    <option value="" disabled>Selecione um apartamento</option>
+                    {% for apt in apartamentos %}
+                        <option value="{{ apt.id }}" {% if apt.id == encomenda.apartamento.id %}selected{% endif %}>
+                            APTO{{ apt.numero }}
+                        </option>
+                    {% endfor %}
+                </select>
+            
+                <label for="peso_kg">Peso (kg):</label>
+                <input type="number" id="peso_kg" name="peso_kg" step="0.01" value="{{ encomenda.peso_kg }}" required>
+            
+                <label for="origem">Origem:</label>
+                <input type="text" id="origem" name="origem" value="{{ encomenda.origem }}" required>
+            
+                <button type="submit">Salvar Alterações</button>
+                <a href="{% url 'condosync:encomendas' %}">← Voltar para a lista de encomendas</a>
+            </form>
+            
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>

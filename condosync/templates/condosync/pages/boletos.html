@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CondoSync | Home</title>
+    <title>CondoSync | Boletos</title>
     <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -27,6 +27,7 @@
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% include "userauth/partials/messages.html" %}
+                    <h1 style="text-align: center; ">Cadastrar Boletos</h1>
                     <label for="apartamento">Apartamento:</label>
                     <select name="apartamento" required>
                         {% for apartamento in apartamentos %}
@@ -34,7 +35,22 @@
                         {% endfor %}
                     </select>
                     
-                    <input type="text" name="mes_referencia" placeholder="Mês de Referência" required>
+                    <label for="mes_referencia">Mês de Referência:</label>
+                    <select name="mes_referencia" required>
+                        <option value="" selected disabled>Selecione o mês</option>
+                        <option value="Janeiro">Janeiro</option>
+                        <option value="Fevereiro">Fevereiro</option>
+                        <option value="Março">Março</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Maio">Maio</option>
+                        <option value="Junho">Junho</option>
+                        <option value="Julho">Julho</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Setembro">Setembro</option>
+                        <option value="Outubro">Outubro</option>
+                        <option value="Novembro">Novembro</option>
+                        <option value="Dezembro">Dezembro</option>
+                    </select>
                     
                     <label for="arquivo">Upload do Boleto:</label>
                     <input type="file" name="arquivo" required>
@@ -48,7 +64,7 @@
                 <div class="text">
                     <h2>{{ boleto.mes_referencia }}</h2>
                     <i class="bx bx-box"></i>
-                    <a href="{{ boleto.arquivo.url }}" download class="btn-download">DOWNLOADS</a>
+                    <a href="{{ boleto.arquivo.url }}" download class="btn-download">DOWNLOAD</a>
                 </div>
                 {% endfor %}
             </div>

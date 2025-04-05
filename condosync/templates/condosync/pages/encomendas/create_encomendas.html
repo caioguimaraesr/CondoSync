@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Encomendas</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+
+            <div class="dashboard">
+                <i class='bx bxs-box' ></i>
+                <h1>RETIRADA DE ENCOMENDAS</h1>
+            </div>
+            
+            <div class="form-encomendas">
+                <form method="POST">
+                    {% csrf_token %}
+                    <h1>Adicionar Encomenda</h1>
+                    
+                    <label for="apartamento">Apartamento:</label>
+                    <select name="apartamento" id="apartamento" required>
+                        <option value="" disabled selected>Selecione um apartamento</option>
+                        {% for apartamento in apartamentos %}
+                        <option value="{{ apartamento.id }}">
+                            APTO{{ apartamento.numero }}: {{ apartamento.morador.username }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    {% for apartamento in apartamentos %}
+                    {% if apartamento.morador %}
+                    <p id="morador-apartamentoo-{{ apartamento.id }}" style="display: none;">
+                        Morador: {{ apartamento.morador.username }}
+                    </p>
+                    {% endif %}
+                    {% endfor %}
+                    
+                    <label for="peso_kg">Peso (kg):</label>
+                    <input type="number" name="peso_kg" id="peso_kg" step="0.01" placeholder="Ex: 2.5" required><br>
+                    
+                    <label for="origem">Origem:</label><br>
+                    <input type="text" name="origem" id="origem" placeholder="Ex: Mercado Livre" required><br>
+                    
+                    <button type="submit">Salvar Encomenda</button>
+                </form>
+            </div>
+            
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>
