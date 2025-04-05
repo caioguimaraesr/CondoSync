@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Encomendas</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+
+            <div class="dashboard">
+                <i class='bx bxs-box' ></i>
+                <h1>RETIRADA DE ENCOMENDAS</h1>
+            </div>
+            
+            <div class="bnt-container">
+                {% if user.is_superuser %}
+                    <a href="{% url 'condosync:create_encomendas' %}" class="btn-adicionar-aviso">
+                        <i class='bx bx-plus'></i> Adicionar Encomenda
+                    </a>              
+                {% endif %}
+            </div>
+            
+            <div class="box-main-encomendas">
+                {% for encomenda in encomendas %}
+                    <div class="text">
+                        <h2>
+                            Encomenda para APTO{{ encomenda.apartamento.numero }}
+                            {% if user.is_superuser %}
+                                <span class="icons">
+                                    <a href="{% url 'condosync:delete_encomendas' encomenda.id %}">
+                                        <i class="bx bx-x"></i>
+                                    </a>
+                                    <a href="{% url 'condosync:edit_encomendas' encomenda.id %}">
+                                        <i class="bx bx-pencil"></i>
+                                    </a>
+                                </span>
+                            {% endif %}
+                        </h2>
+                        <small>
+                            <data value="{{ encomenda.data_chegada|date:'Y-m-d' }}">
+                                Recebida em {{ encomenda.data_chegada|date:"d/m/Y \à\s H:i" }}
+                            </data>
+                        </small>
+                        <p><strong>Morador:</strong> {{ encomenda.apartamento.morador.username }}</p>
+                        <p><strong>Peso:</strong> {{ encomenda.peso_kg }} kg</p>
+                        <p><strong>Origem:</strong> {{ encomenda.origem }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>
