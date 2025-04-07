@@ -181,10 +181,10 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
 ![Issues/Bugtracker](https://github.com/user-attachments/assets/5e8075d7-8984-452f-b698-42ec5290bda6)
 
 ## Backlog
-![Backlog](https://github.com/user-attachments/assets/ceb48465-2f0a-40f6-8b99-4edd1e2140c3)
+![Backlog](https://github.com/user-attachments/assets/89ed38f7-4365-476f-98bd-e72d0e55a16b)
 
 ## Quadro
-![Quadro](https://github.com/user-attachments/assets/d8c1fa6a-da46-4464-9e4f-2bda9470e053)
+![Quadro](https://github.com/user-attachments/assets/03786271-8a46-4f80-afac-51dc402eeb68)
 
 ## 👥 Relato Programação em Par
 Decidimos não realizar a programação em par em nosso projeto Django devido à necessidade de otimizar nosso tempo de entrega. Como grupo, enfrentamos desafios para nos reunir e dedicar períodos prolongados para codificar juntos. Optamos por uma abordagem colaborativa, dividindo tarefas de acordo com nossas habilidades individuais e coordenando o trabalho através de reuniões regulares de acompanhamento. Essa estratégia nos permitiu manter a eficiência e a qualidade, mesmo sem a prática de programação em par. Valorizamos a flexibilidade e a adaptabilidade que essa decisão nos proporcionou, garantindo um resultado final alinhado com nossos objetivos e prazos.
