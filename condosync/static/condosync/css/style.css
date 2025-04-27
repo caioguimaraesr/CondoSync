@@ -542,6 +542,7 @@ main .box-main-avisos a i:hover {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 5px; /* Espaçamento entre os elementos */
 }
 
 .form-avisos form h1 {
@@ -555,7 +556,7 @@ main .box-main-avisos a i:hover {
     font-size: 0.9rem;
     color: var(--clr-dark-variant);
     font-weight: 500;
-    margin-bottom: -0.8rem;
+    margin-bottom: 0.4rem;
 }
 
 .form-avisos form input[type="text"],
@@ -567,6 +568,7 @@ main .box-main-avisos a i:hover {
     background-color: var(--clr-color-background);
     color: var(--clr-dark);
     transition: border 0.2s ease;
+    width: 100%;
 }
 
 .form-avisos form input[type="text"]:focus,
