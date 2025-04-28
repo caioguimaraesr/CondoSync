@@ -977,66 +977,7 @@ main .box-main-encomendas small {
     color: #4a148c;
 }
 
-/*************************************************
-              RIGHT SECTION STYLE
-*************************************************/
-.right{
-    margin-top: 1.4rem;
-}
-
-.right h2{
-    color: var(--clr-dark);
-    padding: 12px;
-}
-
-.right .top {
-    display: flex;
-    justify-content: start;
-    gap: 2rem;
-}
-
-.right .top button{
-    display: none;   
-}
-
-.right .theme-toggler{
-    background-color: var(--clr-white);
-    display: flex;
-    justify-content: space-between;
-    height: 1.6rem;
-    width: 4.2rem;
-    cursor: pointer;
-    border-radius: var(--border-radius-1);
-}
-
-.right .theme-toggler i{
-    font-size: 1.2rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.right .theme-toggler i.active{
-    background-color: var(--clr-primary);
-    color: #fff;
-}
-
-.right .top .profile{
-    display: flex;
-    gap: 2rem;
-    text-align: center;
-}
-
-.right .info h3{
-    color: var(--clr-dark);
-}
-
-.right .item h3{
-    color: var(--clr-dark);
-}
-/************** Veiculos ******************/
+/********************** Veiculos ***************************/
 main .veiculos table {
     width: 100%;
     border-collapse: collapse;
@@ -1101,8 +1042,8 @@ main .veiculos table tr:nth-child(even) {
 
 .adicionar-veiculo-container {
     display: flex; 
-    gap: 1rem; /* Espaçamento entre os botões */
-    justify-content: center; /* Alinha os botões ao centro */
+    gap: 1rem;
+    justify-content: center; 
     flex-wrap: wrap; 
     margin-top: 1rem;
 }
@@ -1129,7 +1070,6 @@ main .veiculos table tr:nth-child(even) {
     font-size: 1.2rem;
 }
 
-/* Gerenciar Veiculos */
 main .gerenciar-veiculos-container {
     display: flex;
     flex-direction: column;
@@ -1193,7 +1133,6 @@ main .gerenciar-veiculos-container {
     gap: 10px; 
 }
 
-/* Form veículos */
 .form-veiculo {
     background-color: var(--clr-white);
     padding: 2rem;
@@ -1253,8 +1192,6 @@ main .gerenciar-veiculos-container {
     background-color: var(--clr-primary-variant);
 }
 
-/* Form de Pesquisa */
-
 .form-pesquisa {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -1294,7 +1231,6 @@ main .gerenciar-veiculos-container {
     background-color: var(--clr-primary-variant);
 }
 
-/************** Lista de Veículos ******************/
 main .form-veiculo table {
     width: 100%;
     border-collapse: collapse;
@@ -1357,7 +1293,6 @@ main .form-veiculo table tr:nth-child(even) {
     background-color: var(--clr-white);
 }
 
-/************** Detalhes do Veículo ******************/
 main .form-veiculo .detalhes {
     padding: 1rem;
     border-radius: var(--border-radius-2);
@@ -1371,10 +1306,9 @@ main .form-veiculo .detalhes strong {
     font-weight: 600;
 }
 
-/************** Ações do Veículo ******************/
 main .form-veiculo td .actions {
     display: flex;
-    flex-direction: column; /* Adiciona essa linha para empilhar os botões verticalmente */
+    flex-direction: column;
     gap: 10px;
 }
 
@@ -1396,7 +1330,6 @@ main .form-veiculo td .actions .btn-editar i {
     margin-right: 5px;
 }
 
-/************** Resposta de Busca (quando vazio) ******************/
 .no-results {
     padding: 1rem;
     background-color: var(--clr-warning);
@@ -1407,9 +1340,127 @@ main .form-veiculo td .actions .btn-editar i {
     font-weight: 600;
 }
 
+/************** Ocorrências ******************/
+.form-ocorrencia-container form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.form-ocorrencia-container form label {
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-ocorrencia-container form input[type="text"],
+.form-ocorrencia-container form textarea,
+.form-ocorrencia-container form select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-ocorrencia-container form input[type="text"]:focus,
+.form-ocorrencia-container form textarea:focus,
+.form-ocorrencia-container form select:focus {
+    border-color: #4CAF50;
+    background-color: #fff;
+    outline: none;
+}
+
+.form-ocorrencia-container form button[type="submit"] {
+    margin-top: 2rem;
+    padding: 0.8rem;
+    background-color: var(--clr-primary);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-ocorrencia-container form button[type="submit"]:hover {
+    background-color: var(--clr-primary-variant);
+}
+
+/* Form - Status */
+
+/* Fazer o css do form status */
+
+/*************************************************
+              RIGHT SECTION STYLE
+*************************************************/
+.right{
+    margin-top: 1.4rem;
+}
+
+.right h2{
+    color: var(--clr-dark);
+    padding: 12px;
+}
+
+.right .top {
+    display: flex;
+    justify-content: start;
+    gap: 2rem;
+}
+
+.right .top button{
+    display: none;   
+}
+
+.right .theme-toggler{
+    background-color: var(--clr-white);
+    display: flex;
+    justify-content: space-between;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler i{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .theme-toggler i.active{
+    background-color: var(--clr-primary);
+    color: #fff;
+}
+
+.right .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: center;
+}
+
+.right .info h3{
+    color: var(--clr-dark);
+}
+
+.right .item h3{
+    color: var(--clr-dark);
+}
 /************** Registration ******************/
 
-/* registration home */
 .right .registration .item {
     background-color: var(--clr-white);
     display: flex;
@@ -1455,7 +1506,6 @@ main .form-veiculo td .actions .btn-editar i {
     align-items: center;
 }
 
-/* registration - avisos */
 .right .registration-avisos .item {
     display: flex;
     align-items: center;
