@@ -23,7 +23,7 @@
             </div>
             
             <div class="bnt-container">
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and not user.is_superuser%}
                     <a href="{% url 'condosync:create_ocorrencia' %}" class="btn-adicionar-aviso">
                         <i class='bx bx-plus'></i> Registrar Ocorrência
                     </a>              
@@ -60,7 +60,13 @@
                                 </form>
                             </div>
                         {% else %}
-                            <p>{{ ocorrencia.get_status_display }}</p>
+                        <p 
+                        class="{% if ocorrencia.status == 'pendente' %}status-pendente
+                            {% elif ocorrencia.status == 'em_andamento' %}status-andamento
+                            {% elif ocorrencia.status == 'resolvido' %}status-resolvido
+                            {% endif %}">
+                        {{ ocorrencia.get_status_display }}
+                        </p>
                         {% endif %}
                     </div>
                 {% empty %}
