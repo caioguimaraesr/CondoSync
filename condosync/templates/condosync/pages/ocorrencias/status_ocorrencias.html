@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Editar Status da Ocorrência</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-edit'></i>
+                <h1>EDITAR STATUS</h1>
+            </div>
+
+            <div class="form-editar-status">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <label for="status">Status:</label>
+                    <select name="status" id="status" required>
+                        <option value="pendente" {% if ocorrencia.status == 'pendente' %}selected{% endif %}>Pendente</option>
+                        <option value="em_andamento" {% if ocorrencia.status == 'em_andamento' %}selected{% endif %}>Em andamento</option>
+                        <option value="resolvido" {% if ocorrencia.status == 'resolvido' %}selected{% endif %}>Resolvido</option>
+                    </select>
+
+                    <button type="submit" class="btn-salvar-status">
+                        <i class='bx bx-save'></i> Salvar Alteração
+                    </button>
+                </form>
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>
