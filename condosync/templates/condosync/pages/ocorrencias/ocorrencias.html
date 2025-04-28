@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Ocorrências</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-report'></i>
+                <h1>OCORRÊNCIAS</h1>
+            </div>
+            
+            <div class="bnt-container">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'condosync:create_ocorrencia' %}" class="btn-adicionar-aviso">
+                        <i class='bx bx-plus'></i> Registrar Ocorrência
+                    </a>              
+                {% endif %}
+            </div>
+        
+            <div class="box-main-avisos">
+                {% for ocorrencia in ocorrencias %}
+                    <div class="text">
+                        <h2>
+                            {% if user.is_superuser or user == ocorrencia.usuario %}
+                                <a href="{% url 'condosync:delete_ocorrencias' ocorrencia.id %}"><i class="bx bx-x"></i></a>
+                                <a href="{% url 'condosync:edit_ocorrencias' ocorrencia.id %}"><i class="bx bx-pencil"></i></a>                
+                            {% endif %}
+                            {{ ocorrencia.titulo }}
+                        </h2>
+                        <small>
+                            <data value="{{ ocorrencia.created_at|date:"d-m-Y" }}">
+                                {{ ocorrencia.created_at|date:"d/m/Y \à\s H:i" }} - {{ ocorrencia.usuario.username }}
+                            </data>
+                        </small>
+                        <p>{{ ocorrencia.desc }}</p>
+                        {% if user.is_superuser %}
+                            <div class="form-status">
+                                <form action="{% url 'condosync:status_ocorrencias' ocorrencia.id %}" method="POST" style="margin-top: 1rem;">
+                                    {% csrf_token %}
+                                    <label for="status-{{ ocorrencia.id }}">Status:</label>
+                                    <select name="status" id="status-{{ ocorrencia.id }}">
+                                        <option value="pendente" {% if ocorrencia.status == 'pendente' %}selected{% endif %}>Pendente</option>
+                                        <option value="em_andamento" {% if ocorrencia.status == 'em_andamento' %}selected{% endif %}>Em andamento</option>
+                                        <option value="resolvido" {% if ocorrencia.status == 'resolvido' %}selected{% endif %}>Resolvido</option>
+                                    </select>
+                                    <button type="submit" class="btn-salvar-status">Salvar</button>
+                                </form>
+                            </div>
+                        {% else %}
+                            <p>{{ ocorrencia.get_status_display }}</p>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <p>Não há ocorrências registradas.</p>
+                {% endfor %}
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>
