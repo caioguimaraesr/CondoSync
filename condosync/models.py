@@ -56,3 +56,19 @@ class Veiculo(models.Model):
 
     def __str__(self):
         return f'{self.tipo_veiculo} - {self.modelo} {self.placa} - Proprietário: {self.usuario.username}'
+
+class Ocorrencia(models.Model):
+    titulo = models.CharField(max_length=100)
+    desc = models.TextField()
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    STATUS_CHOICES = [
+        ('pendente', 'Pendente'),
+        ('em_andamento', 'Em andamento'),
+        ('resolvido', 'Resolvido')
+    ]
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pendente')
+
+    def __str__(self):
+        return f"Ocorrência: {self.titulo} - Morador: {self.usuario.username}"
