@@ -36,3 +36,23 @@ class Encomenda(models.Model):
     
     def __str__(self):
         return f"Encomenda - APTO{self.apartamento.numero}"
+    
+class Veiculo(models.Model):
+    TIPOS_DE_VEICULO = [
+        ('Carro', 'Carro'),
+        ('Moto', 'Moto'),
+        ('Van', 'Van'),
+        ('Outro', 'Outro')
+    ]
+    
+    tipo_veiculo = models.CharField(max_length=50, choices=TIPOS_DE_VEICULO)
+    placa = models.CharField(max_length=7, unique=True)
+    marca = models.CharField(max_length=50)
+    modelo = models.CharField(max_length=50)
+    cor = models.CharField(max_length=30)
+    ano = models.CharField(max_length=4, default='0000')
+
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='veiculos')
+
+    def __str__(self):
+        return f'{self.tipo_veiculo} - {self.modelo} {self.placa} - Proprietário: {self.usuario.username}'

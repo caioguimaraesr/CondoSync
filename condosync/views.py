@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo
 from django.contrib import messages
 from django.utils import timezone
 # Create your views here.
@@ -159,3 +159,103 @@ def delete_encomendas(request, id):
     return render(request, 'condosync/pages/encomendas/delete_encomendas.html', context={
         'encomenda':encomenda
     })
+
+#################################### Carros ##############################################
+def meus_veiculos(request):
+    usuario = request.user
+    veiculos = Veiculo.objects.filter(usuario=usuario)
+    return render(request, 'condosync/pages/veiculos/meus_veiculos.html', context={
+        'veiculos':veiculos
+    })
+
+def adicionar_veiculos(request):
+    veiculos_do_usuario = Veiculo.objects.filter(usuario=request.user)
+    if veiculos_do_usuario.count() >= 5:
+        messages.error(request, 'Você já atingiu o limite de 5 veículos cadastrados.')
+        return redirect('condosync:meus_veiculos')
+
+    if request.method == 'POST':
+        tipo_veiculo = request.POST.get('tipo_veiculo')
+        modelo = request.POST.get('modelo')
+        placa = request.POST.get('placa')
+        cor = request.POST.get('cor')
+        ano = request.POST.get('ano')
+        marca = request.POST.get('marca')
+
+        veiculo = Veiculo(
+            tipo_veiculo=tipo_veiculo,
+            modelo=modelo,
+            placa=placa,
+            cor=cor,
+            ano=ano,
+            marca=marca,
+            usuario=request.user
+        )
+        veiculo.save()
+        return redirect('condosync:meus_veiculos')
+    return render(request, 'condosync/pages/veiculos/adicionar_veiculos.html')
+
+def gerenciar_veiculos(request):
+    usuario = request.user
+    veiculos = Veiculo.objects.filter(usuario=usuario)
+    return render(request, 'condosync/pages/veiculos/gerenciar_veiculos.html', context={
+        'veiculos': veiculos
+    })
+
+def editar_veiculos(request, id):
+    veiculo = get_object_or_404(Veiculo, id=id)
+
+    if request.method == 'POST':
+        tipo_veiculo = request.POST.get('tipo_veiculo')
+        modelo = request.POST.get('modelo')
+        placa = request.POST.get('placa')
+        cor = request.POST.get('cor')
+        marca = request.POST.get('marca')
+        ano = request.POST.get('ano')
+
+        if tipo_veiculo and placa and marca and modelo and cor and ano:
+            veiculo.tipo_veiculo = tipo_veiculo
+            veiculo.placa = placa
+            veiculo.marca = marca
+            veiculo.modelo = modelo
+            veiculo.cor = cor
+            veiculo.ano = ano
+            veiculo.save()
+            return redirect('condosync:meus_veiculos') 
+
+    return render(request, 'condosync/pages/veiculos/editar_veiculos.html', context={
+        'veiculo': veiculo 
+    })
+
+def deletar_veiculos(request, id):
+    veiculo = get_object_or_404(Veiculo, id=id)
+    if request.method == 'POST':
+        veiculo.delete()
+        if not is_admin:
+            return redirect('condosync:meus_veiculos')
+        else:
+            return redirect('condosync:veiculos_admin')
+    return render(request, 'condosync/pages/veiculos/deletar_veiculos.html', context={
+        'veiculo': veiculo
+    })
+
+def veiculos_admin(request):
+    if request.user.is_superuser:
+        search_query = request.GET.get('search', '')
+
+        veiculos = Veiculo.objects.filter(
+            tipo_veiculo__icontains=search_query
+        ) | Veiculo.objects.filter(
+            modelo__icontains=search_query
+        ) | Veiculo.objects.filter(
+            placa__icontains=search_query
+        ) | Veiculo.objects.filter(
+            marca__icontains=search_query
+        )
+        
+        return render(request, 'condosync/pages/veiculos/veiculos_admin.html', context={
+            'veiculos': veiculos,
+            'search_query': search_query
+        })
+    else:
+        return redirect('condosync:veiculos')

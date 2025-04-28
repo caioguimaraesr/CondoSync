@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Lista de Veículos</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-car'></i>
+                <h1>LISTA DE VEÍCULOS</h1>
+            </div>
+
+            <div class="form-pesquisa">
+                <form method="GET" action="{% url 'condosync:veiculos_admin' %}">
+                    <input type="text" name="search" placeholder="Pesquise por tipo, modelo, placa..." value="{{ search_query }}">
+                    <button type="submit">Pesquisar</button>
+                </form>
+            </div>
+
+            <div class="form-veiculo">
+                <h3 style="font-size: 24px; font-weight: bold;" >Todos os veículos cadastrados</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Veículo</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Placa</th>
+                            <th>Proprietário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for veiculo in veiculos %}
+                            <tr>
+                                <td>{{ veiculo.tipo_veiculo }}</td>
+                                <td>{{ veiculo.marca }}</td>
+                                <td>{{ veiculo.modelo }}</td>
+                                <td>{{ veiculo.placa }}</td>
+                                <td>
+                                    <a href="javascript:void(0)" class="btn-detalhes">Detalhes</a>
+                                    <div class="detalhes">
+                                        <p><strong>Nome do proprietário:</strong> {{ veiculo.usuario.username }}</p>
+                                        <p><strong>Email:</strong> {{ veiculo.usuario.email }}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="{% url 'condosync:editar_veiculos' veiculo.id %}" class="btn-editar">
+                                        Editar
+                                    </a>
+                                    <a href="{% url 'condosync:deletar_veiculos' veiculo.id %}" class="btn-editar">
+                                        Deletar
+                                    </a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6">Nenhum veículo encontrado.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>

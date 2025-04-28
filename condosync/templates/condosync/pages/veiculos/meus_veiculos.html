@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Home</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-car'></i>
+                <h1>MEUS VEÍCULOS</h1>
+            </div>
+
+            <div class="adicionar-veiculo-container">
+                <a href="{% url 'condosync:adicionar_veiculos' %}" class="btn-adicionar-veiculo">
+                    <i class="bx bx-plus"></i>
+                    Adicionar Veículo
+                </a>
+                <a href="{% url 'condosync:gerenciar_veiculos' %}" class="btn-adicionar-veiculo">
+                    <i class="bx bxs-cog"></i>
+                    Gerenciar Veículos
+                </a>
+            </div>
+            
+            <div class="veiculos">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Veículo</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Placa</th>
+                            <th>Cor</th>
+                            <th>Ano</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for veiculo in veiculos %}
+                            <tr>
+                                <td>{{ veiculo.tipo_veiculo }}</td>
+                                <td>{{ veiculo.marca }}</td>
+                                <td>{{ veiculo.modelo }}</td>
+                                <td>{{ veiculo.placa }}</td>
+                                <td>{{ veiculo.cor }}</td>
+                                <td>{{ veiculo.ano }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="6">Nenhum veículo cadastrado.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>

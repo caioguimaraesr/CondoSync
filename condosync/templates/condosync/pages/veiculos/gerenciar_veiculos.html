@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Gerenciar Veículos</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-car'></i>
+                <h1>GERENCIAR VEÍCULOS</h1>
+            </div>
+            
+            <div class="gerenciar-veiculos-container">
+                {% for veiculo in veiculos %}
+                    <div class="veiculos-elements">
+                        <span>{{ veiculo.modelo }} - {{ veiculo.placa }}</span>
+                        <a href="{% url "condosync:editar_veiculos" veiculo.id %} " class="editar-veiculo">
+                            <i class='bx bxs-pencil'></i>
+                        </a>
+                        <a href="{% url "condosync:deletar_veiculos" veiculo.id %}" class="deletar-veiculo">
+                            <i class='bx bx-x'></i>
+                        </a>
+                    </div>
+                {% empty %}
+                    <p>Nenhum veículo cadastrado.</p>
+                {% endfor %}
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>

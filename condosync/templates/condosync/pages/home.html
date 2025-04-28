@@ -39,7 +39,7 @@
                </div>
                
                <div class="buttons-main">
-                   <a id="cadastramento-veiculos-link" href="">
+                   <a id="cadastramento-veiculos-link" {% if user.is_superuser %} href={% url "condosync:veiculos_admin" %} {% else %} href="{% url "condosync:meus_veiculos" %}" {% endif %}>
                        <i class='bx bx-car'></i>
                        <h1>Cadastramento de Veículos</h1>
                    </a>
