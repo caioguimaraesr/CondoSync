@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia
 from django.contrib import messages
 from django.utils import timezone
 # Create your views here.
 def is_admin(user):
     if not user.is_superuser:
         return False 
+    return True
+
+def is_user(user):
+    if not user.is_authenticated or user.is_superuser:
+        return False
     return True
 
 ########################### Home Page ###################################
@@ -161,6 +166,8 @@ def delete_encomendas(request, id):
     })
 
 #################################### Carros ##############################################
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_user, login_url='condosync:veiculos_admin')
 def meus_veiculos(request):
     usuario = request.user
     veiculos = Veiculo.objects.filter(usuario=usuario)
@@ -168,6 +175,7 @@ def meus_veiculos(request):
         'veiculos':veiculos
     })
 
+@login_required(login_url='userauth:login_register')
 def adicionar_veiculos(request):
     veiculos_do_usuario = Veiculo.objects.filter(usuario=request.user)
     if veiculos_do_usuario.count() >= 5:
@@ -195,6 +203,7 @@ def adicionar_veiculos(request):
         return redirect('condosync:meus_veiculos')
     return render(request, 'condosync/pages/veiculos/adicionar_veiculos.html')
 
+@login_required(login_url='userauth:login_register')
 def gerenciar_veiculos(request):
     usuario = request.user
     veiculos = Veiculo.objects.filter(usuario=usuario)
@@ -202,6 +211,7 @@ def gerenciar_veiculos(request):
         'veiculos': veiculos
     })
 
+@login_required(login_url='userauth:login_register')
 def editar_veiculos(request, id):
     veiculo = get_object_or_404(Veiculo, id=id)
 
@@ -227,6 +237,7 @@ def editar_veiculos(request, id):
         'veiculo': veiculo 
     })
 
+@login_required(login_url='userauth:login_register')
 def deletar_veiculos(request, id):
     veiculo = get_object_or_404(Veiculo, id=id)
     if request.method == 'POST':
@@ -239,6 +250,8 @@ def deletar_veiculos(request, id):
         'veiculo': veiculo
     })
 
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:meus_veiculos')
 def veiculos_admin(request):
     if request.user.is_superuser:
         search_query = request.GET.get('search', '')
@@ -259,3 +272,79 @@ def veiculos_admin(request):
         })
     else:
         return redirect('condosync:veiculos')
+    
+#################################### Ocorrências ##############################################
+@login_required(login_url='userauth:login_register')
+def ocorrencias(request):
+    ocorrencias = Ocorrencia.objects.all().order_by('-created_at')
+    return render(request, 'condosync/pages/ocorrencias/ocorrencias.html', context={
+        'ocorrencias': ocorrencias
+    })
+
+@login_required(login_url='userauth:login_register')
+def create_ocorrencias(request):
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        desc = request.POST.get('desc')
+        status = request.POST.get('status', 'pendente')
+
+        Ocorrencia.objects.create(
+            titulo=titulo,
+            desc=desc,
+            status=status,
+            usuario=request.user
+        )
+        return redirect('condosync:ocorrencias')
+    
+    return render(request, 'condosync/pages/ocorrencias/create_ocorrencias.html')
+
+@login_required(login_url='userauth:login_register')
+def edit_ocorrencias(request, id):
+    ocorrencia = get_object_or_404(Ocorrencia, id=id)
+
+    if request.user != ocorrencia.usuario and not request.user.is_superuser:
+        return redirect('condosync:ocorrencias') 
+
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        desc = request.POST.get('desc')
+
+        if titulo and desc:
+            ocorrencia.titulo = titulo
+            ocorrencia.desc = desc
+            ocorrencia.save()
+            return redirect('condosync:ocorrencias')
+
+    return render(request, 'condosync/pages/ocorrencias/edit_ocorrencias.html', context={
+        'ocorrencia': ocorrencia
+    })
+
+@login_required(login_url='userauth:login_register')
+def delete_ocorrencias(request, id):
+    ocorrencia = get_object_or_404(Ocorrencia, id=id)
+
+    if request.user != ocorrencia.usuario and not request.user.is_superuser:
+        return redirect('condosync:ocorrencias') 
+
+    if request.method == 'POST':
+        ocorrencia.delete()
+        return redirect('condosync:ocorrencias')
+
+    return render(request, 'condosync/pages/ocorrencias/delete_ocorrencias.html', context={
+        'ocorrencia': ocorrencia
+    })
+
+@login_required(login_url='userauth:login_register')
+def status_ocorrencias(request, id):
+    ocorrencia = get_object_or_404(Ocorrencia, id=id)
+
+    if request.method == 'POST':
+        status = request.POST.get('status')
+        if status in ['pendente', 'em_andamento', 'resolvido']:
+            ocorrencia.status = status
+            ocorrencia.save()
+            return redirect('condosync:ocorrencias')
+    
+    return render(request, 'condosync/pages/ocorrencias/status_ocorrencias.html', {
+        'ocorrencia': ocorrencia
+    })
