@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes
 # Register your models here.
 
 @admin.register(Apartamento)
@@ -24,4 +24,8 @@ class VeiculoAdmin(admin.ModelAdmin):
 
 @admin.register(Ocorrencia)
 class OcorrenciaAdmin(admin.ModelAdmin):
+    ...
+
+@admin.register(Sugestoes)
+class SugestoesAdmin(admin.ModelAdmin):
     ...
