@@ -36,4 +36,10 @@ urlpatterns = [
     path('ocorrencias/edit/<int:id>/', views.edit_ocorrencias, name='edit_ocorrencias'),
     path('ocorrencias/status/<int:id>/', views.status_ocorrencias, name='status_ocorrencias'),
     path('ocorrencias/delete/<int:id>/', views.delete_ocorrencias, name='delete_ocorrencias'),
+
+    ## Sugestões de Melhorias
+    path('sugestoes/', views.sugestoes, name='sugestoes'),
+    path('sugestoes/create/', views.create_sugestoes, name='create_sugestoes'),
+    path('sugestoes/edit/<int:id>', views.edit_sugestoes, name='edit_sugestoes'),
+    path('sugestoes/delete/<int:id>', views.delete_sugestoes, name='delete_sugestoes')
 ]
