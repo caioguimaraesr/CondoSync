@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Sugestões</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-report'></i>
+                <h1>SUGESTÕES DE MELHORIAS</h1>
+            </div>
+            
+            <div class="sugestoes">
+                <div class="bnt-container">
+                    {% if user.is_authenticated %}
+                        <a href="{% url "condosync:create_sugestoes" %}" class="btn-adicionar-aviso">
+                            <i class='bx bx-plus'></i> Enviar Sugestão
+                        </a>              
+                    {% endif %}
+                </div>
+            
+                <div class="box-sugestoes">
+                    {% for sugestao in sugestoes %}
+                        <div class="text">
+                            <div class="cabecalho-sugestao">
+                                <h2>
+                                    <span class="icon-actions">
+                                        {% if user == sugestao.usuario or user.is_superuser %}
+                                            <a href="{% url "condosync:delete_sugestoes" sugestao.id %}"><i class="bx bx-x"></i></a>
+                                            <a href="{% url "condosync:edit_sugestoes" sugestao.id %}"><i class="bx bx-pencil"></i></a>                
+                                        {% endif %}
+                                    </span>
+                                    {{ sugestao.titulo }}
+                                </h2>
+                            </div>
+                            
+                            <div class="info-sugestao">
+                                <small>
+                                    <data value="{{ sugestao.data_criacao|date:'d-m-Y' }}">
+                                        Enviado por <strong>{{ sugestao.usuario.username }}</strong>
+                                        em {{ sugestao.data_criacao|date:"d/m/Y \à\s H:i" }}
+                                    </data>
+                                </small>
+                            </div>
+
+                            <div class="descricao-sugestao">
+                                <p>{{ sugestao.descricao }}</p>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>Não há sugestões cadastradas ainda.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>
