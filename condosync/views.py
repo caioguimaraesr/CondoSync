@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes
 from django.contrib import messages
 from django.utils import timezone
+from django.http import HttpResponseForbidden
+
 # Create your views here.
 def is_admin(user):
     if not user.is_superuser:
@@ -148,7 +150,7 @@ def edit_encomendas(request, id):
             encomenda.save()
             return redirect('condosync:encomendas')
 
-    return render(request, 'condosync/pages/encomendas/edit_encomendas.html', {
+    return render(request, 'condosync/pages/encomendas/edit_encomendas.html', context={
         'encomenda': encomenda,
         'apartamentos': apartamentos,
         'editando': True
@@ -347,4 +349,60 @@ def status_ocorrencias(request, id):
     
     return render(request, 'condosync/pages/ocorrencias/status_ocorrencias.html', {
         'ocorrencia': ocorrencia
+    })
+
+#################################### Sugestões Melhorias ##############################################
+def sugestoes(request):
+    sugestoes = Sugestoes.objects.all().order_by('-data_criacao')
+    return render(request, 'condosync/pages/sugestoes_melhorias/sugestoes_melhorias.html', context={
+        'sugestoes':sugestoes
+    })
+
+def create_sugestoes(request):
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+
+        if titulo and descricao:
+            Sugestoes.objects.create(
+                usuario=request.user,
+                titulo=titulo,
+                descricao=descricao
+            )
+            return redirect('condosync:sugestoes') 
+    return render(request, 'condosync/pages/sugestoes_melhorias/create_sugestoes.html')
+
+def edit_sugestoes(request, id):
+    sugestao = get_object_or_404(Sugestoes, id=id)
+
+    if sugestao.usuario != request.user and not request.user.is_superuser:
+        return HttpResponseForbidden("Você não tem permissão para editar esta sugestão.")
+
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+
+        if titulo and descricao:
+            sugestao.titulo = titulo
+            sugestao.descricao = descricao
+            sugestao.save()
+            return redirect('condosync:sugestoes')
+
+    return render(request, 'condosync/pages/sugestoes_melhorias/edit_sugestoes.html', context={
+        'sugestao': sugestao
+    })
+
+
+def delete_sugestoes(request, id):
+    sugestao = get_object_or_404(Sugestoes, id=id)
+
+    if sugestao.usuario != request.user and not request.user.is_superuser:
+        return HttpResponseForbidden("Você não tem permissão para excluir esta sugestão.")
+
+    if request.method == 'POST':
+        sugestao.delete()
+        return redirect('condosync:sugestoes')
+
+    return render(request, 'condosync/pages/sugestoes_melhorias/delete_sugestoes.html', context={
+        'sugestao': sugestao
     })
