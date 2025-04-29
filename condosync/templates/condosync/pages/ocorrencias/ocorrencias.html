@@ -29,49 +29,50 @@
                     </a>              
                 {% endif %}
             </div>
-        
-            <div class="box-main-avisos">
-                {% for ocorrencia in ocorrencias %}
-                    <div class="text">
-                        <h2>
-                            {% if user.is_superuser or user == ocorrencia.usuario %}
-                                <a href="{% url 'condosync:delete_ocorrencias' ocorrencia.id %}"><i class="bx bx-x"></i></a>
-                                <a href="{% url 'condosync:edit_ocorrencias' ocorrencia.id %}"><i class="bx bx-pencil"></i></a>                
+            <div class="box-main-ocorrencias">
+                <div class="box-main-avisos">
+                    {% for ocorrencia in ocorrencias %}
+                        <div class="text">
+                            <h2>
+                                {% if user.is_superuser or user == ocorrencia.usuario %}
+                                    <a href="{% url 'condosync:delete_ocorrencias' ocorrencia.id %}"><i class="bx bx-x"></i></a>
+                                    <a href="{% url 'condosync:edit_ocorrencias' ocorrencia.id %}"><i class="bx bx-pencil"></i></a>                
+                                {% endif %}
+                                {{ ocorrencia.titulo }}
+                            </h2>
+                            <small>
+                                <data value="{{ ocorrencia.created_at|date:"d-m-Y" }}">
+                                    {{ ocorrencia.created_at|date:"d/m/Y \à\s H:i" }} - {{ ocorrencia.usuario.username }}
+                                </data>
+                            </small>
+                            <p>{{ ocorrencia.desc }}</p>
+                            {% if user.is_superuser %}
+                                <div class="form-status">
+                                    <form action="{% url 'condosync:status_ocorrencias' ocorrencia.id %}" method="POST" style="margin-top: 1rem;">
+                                        {% csrf_token %}
+                                        <label for="status-{{ ocorrencia.id }}">Status:</label>
+                                        <select name="status" id="status-{{ ocorrencia.id }}">
+                                            <option value="pendente" {% if ocorrencia.status == 'pendente' %}selected{% endif %}>Pendente</option>
+                                            <option value="em_andamento" {% if ocorrencia.status == 'em_andamento' %}selected{% endif %}>Em andamento</option>
+                                            <option value="resolvido" {% if ocorrencia.status == 'resolvido' %}selected{% endif %}>Resolvido</option>
+                                        </select>
+                                        <button type="submit" class="btn-salvar-status">Salvar</button>
+                                    </form>
+                                </div>
+                            {% else %}
+                            <p 
+                            class="{% if ocorrencia.status == 'pendente' %}status-pendente
+                                {% elif ocorrencia.status == 'em_andamento' %}status-andamento
+                                {% elif ocorrencia.status == 'resolvido' %}status-resolvido
+                                {% endif %}">
+                            {{ ocorrencia.get_status_display }}
+                            </p>
                             {% endif %}
-                            {{ ocorrencia.titulo }}
-                        </h2>
-                        <small>
-                            <data value="{{ ocorrencia.created_at|date:"d-m-Y" }}">
-                                {{ ocorrencia.created_at|date:"d/m/Y \à\s H:i" }} - {{ ocorrencia.usuario.username }}
-                            </data>
-                        </small>
-                        <p>{{ ocorrencia.desc }}</p>
-                        {% if user.is_superuser %}
-                            <div class="form-status">
-                                <form action="{% url 'condosync:status_ocorrencias' ocorrencia.id %}" method="POST" style="margin-top: 1rem;">
-                                    {% csrf_token %}
-                                    <label for="status-{{ ocorrencia.id }}">Status:</label>
-                                    <select name="status" id="status-{{ ocorrencia.id }}">
-                                        <option value="pendente" {% if ocorrencia.status == 'pendente' %}selected{% endif %}>Pendente</option>
-                                        <option value="em_andamento" {% if ocorrencia.status == 'em_andamento' %}selected{% endif %}>Em andamento</option>
-                                        <option value="resolvido" {% if ocorrencia.status == 'resolvido' %}selected{% endif %}>Resolvido</option>
-                                    </select>
-                                    <button type="submit" class="btn-salvar-status">Salvar</button>
-                                </form>
-                            </div>
-                        {% else %}
-                        <p 
-                        class="{% if ocorrencia.status == 'pendente' %}status-pendente
-                            {% elif ocorrencia.status == 'em_andamento' %}status-andamento
-                            {% elif ocorrencia.status == 'resolvido' %}status-resolvido
-                            {% endif %}">
-                        {{ ocorrencia.get_status_display }}
-                        </p>
-                        {% endif %}
-                    </div>
-                {% empty %}
-                    <p>Não há ocorrências registradas.</p>
-                {% endfor %}
+                        </div>
+                    {% empty %}
+                        <p>Não há ocorrências registradas.</p>
+                    {% endfor %}
+                </div>
             </div>
         </main>
         <!-- main section end -->
@@ -84,3 +85,4 @@
     <script src="{% static 'condosync/js/scripts.js' %}"></script>
 </body>
 </html>
+
