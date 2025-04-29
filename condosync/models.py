@@ -72,3 +72,12 @@ class Ocorrencia(models.Model):
 
     def __str__(self):
         return f"Ocorrência: {self.titulo} - Morador: {self.usuario.username}"
+
+class Sugestoes(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=100)
+    descricao = models.TextField()
+    data_criacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titulo
