@@ -204,6 +204,9 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
     <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 </p>
+  
+## Issue/Bugtracker
+![Bugtracker/Issue](https://github.com/user-attachments/assets/b9705c44-fde5-4b6c-910a-fd30da645dfd)
 
 ## Quadro 
 ![Quadro](https://github.com/user-attachments/assets/b66cf043-238d-4abb-8c69-e41e094a51f2)
