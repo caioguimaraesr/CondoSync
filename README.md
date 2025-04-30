@@ -15,6 +15,7 @@
   <a href="https://www.youtube.com/playlist?list=PLeHBP6nFOf9jqq0qquZCcB6b7QM5YPM75">
     <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
+  
 </p>
 
 ## Descrição
@@ -203,6 +204,8 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
   <a href="#">
     <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
+  <a href="https://docs.google.com/document/d/1km2Mf0yh84b1T0vPWuO5kAGjHTdI2k5dvFS940Ft5VI/edit?usp=sharing">
+  <img src="https://img.shields.io/badge/Relato Programação em Par-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
 </p>
   
 ## Issue/Bugtracker
