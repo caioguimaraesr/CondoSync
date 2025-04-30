@@ -6,7 +6,7 @@
 
 <br>
 <p align="center">
-  <a href="https://condosync.azurewebsites.net/">
+  <a href="https://condosyncgg.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
@@ -166,7 +166,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
   <summary><h2><strong>Entrega 2</strong></h2></summary>
   <br>
   <p align="center">
-  <a href="https://condosync.azurewebsites.net/">
+  <a href="https://condosyncgg.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
@@ -194,7 +194,7 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 <details>
   <summary><h2><strong>Entrega 3</strong></h2></summary>
   <p align="center">
-  <a href="https://condosync.azurewebsites.net/">
+  <a href="https://condosyncgg.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
@@ -204,6 +204,12 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
     <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 </p>
+
+## Quadro 
+![Quadro](https://github.com/user-attachments/assets/b66cf043-238d-4abb-8c69-e41e094a51f2)
+
+## Backlog
+![Backlog](https://github.com/user-attachments/assets/57deb326-ce99-48ab-a029-674a6e80da7d)
 
 </details>
 
