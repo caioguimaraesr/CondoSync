@@ -32,8 +32,8 @@ class CadastroTest(unittest.TestCase):
         last_name_field.send_keys('teste')
         username_field.send_keys('userteste')
         email_field.send_keys('userteste@gmail.com')
-        password_field.send_keys('teste123')
-        confirm_password_field.send_keys('teste123')
+        password_field.send_keys('User@teste2025')
+        confirm_password_field.send_keys('User@teste2025')
 
         apartamento_select.click()
         apartamento_select.find_element(By.XPATH, '//option[not(@disabled)]').click()
@@ -71,8 +71,8 @@ class CadastroTest(unittest.TestCase):
         last_name_field.send_keys('teste')
         username_field.send_keys('adminteste')
         email_field.send_keys('adminteste@gmail.com')
-        password_field.send_keys('teste123')
-        confirm_password_field.send_keys('teste123')
+        password_field.send_keys('Admin@teste2025')
+        confirm_password_field.send_keys('Admin@teste2025')
 
         apartamento_select.click()
         apartamento_select.find_element(By.XPATH, '//option[not(@disabled)]').click()
@@ -111,7 +111,7 @@ class LoginTest(unittest.TestCase):
         password_field = login_div.find_element(By.NAME, 'password')
 
         username_field.send_keys('userteste') 
-        password_field.send_keys('teste123')
+        password_field.send_keys('User@teste2025')
 
         login_button = login_div.find_element(By.TAG_NAME, 'button')
         login_button.click()
@@ -132,7 +132,7 @@ class LoginTest(unittest.TestCase):
         password_field = login_div.find_element(By.NAME, 'password')
 
         username_field.send_keys('adminteste') 
-        password_field.send_keys('teste123')
+        password_field.send_keys('Admin@teste2025')
 
         login_button = login_div.find_element(By.TAG_NAME, 'button')
         login_button.click()
