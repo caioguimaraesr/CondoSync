@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Editar Sugestão</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-report'></i>
+                <h1>VOCÊ SABIA...?</h1>
+            </div>
+            <div class="form-avisos">
+                <form method="post">
+                    {% csrf_token %}
+                
+                    <!-- Título 1 e Conteúdo 1 -->
+                    <div class="form-group">
+                        <label for="titulo_1">Título 1:</label>
+                        <input type="text" id="titulo_1" name="titulo_1" value="{{ informacao.titulo_1 }}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="conteudo_1">Conteúdo 1:</label>
+                        <textarea id="conteudo_1" name="conteudo_1" required>{{ informacao.conteudo_1 }}</textarea>
+                    </div>
+                    
+                    <!-- Título 2 e Conteúdo 2 -->
+                    <div class="form-group">
+                        <label for="titulo_2">Título 2:</label>
+                        <input type="text" id="titulo_2" name="titulo_2" value="{{ informacao.titulo_2 }}" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="conteudo_2">Conteúdo 2:</label>
+                        <textarea id="conteudo_2" name="conteudo_2" required>{{ informacao.conteudo_2 }}</textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <button type="submit">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static "condosync/js/scripts.js" %}"></script>
+</body>
+</html>

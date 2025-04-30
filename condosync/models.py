@@ -81,3 +81,15 @@ class Sugestoes(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+class VoceSabia(models.Model):
+    titulo_1 = models.CharField(max_length=200)
+    conteudo_1 = models.TextField()
+    
+    titulo_2 = models.CharField(max_length=200)
+    conteudo_2 = models.TextField()
+
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Você sabia? - Criado em {self.criado_em.strftime('%d/%m/%Y')}"

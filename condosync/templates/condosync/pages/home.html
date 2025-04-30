@@ -48,18 +48,22 @@
 
             <!-- start box-main -->
             <div class="box-main">
-                <h1>Você sabia...?</h1>
-                <div class="text">
-                    <h2>Síndico Pode Ser um Profissional</h2>
-                    <p>Além de moradores eleitos, hoje em dia existem síndicos profissionais que administram vários condomínios ao mesmo tempo.</p>
-                </div>
-
-                <div class="text">
-                    <h2>Regras Podem Variar Bastante</h2>
-                    <p>Cada condomínio tem autonomia para criar suas próprias regras, desde que respeitem as leis, por isso, um pode permitir pets na área comum e outro não.</p>
-                </div> 
+                <h1>Você sabia...? {% if user.is_superuser %} <a href="{% url "condosync:voce_sabia" %}"><i class="bx bx-pencil"></i></a> {% endif %}</h1>
+            
+                {% if informacao %}
+                    <div class="text">
+                        <h2>{{ informacao.titulo_1 }}</h2>
+                        <p>{{ informacao.conteudo_1 }}</p>
+                    </div>
+            
+                    <div class="text">
+                        <h2>{{ informacao.titulo_2 }}</h2>
+                        <p>{{ informacao.conteudo_2 }}</p>
+                    </div>
+                {% else %}
+                    <p>Nenhuma informação disponível no momento.</p>
+                {% endif %}
             </div>
-
         </main>
         <!-- main section end -->
 

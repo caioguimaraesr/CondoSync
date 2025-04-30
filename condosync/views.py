@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia
 from django.contrib import messages
 from django.utils import timezone
 from django.http import HttpResponseForbidden
@@ -19,7 +19,10 @@ def is_user(user):
 ########################### Home Page ###################################
 @login_required(login_url='userauth:login_register')
 def home(request):
-    return render(request, 'condosync/pages/home.html')
+    informacao = VoceSabia.objects.last()
+    return render(request, 'condosync/pages/home.html', context={
+        'informacao': informacao
+    })
 
 ########################### Boletos ###################################
 @login_required(login_url='userauth:login_register')
@@ -405,4 +408,26 @@ def delete_sugestoes(request, id):
 
     return render(request, 'condosync/pages/sugestoes_melhorias/delete_sugestoes.html', context={
         'sugestao': sugestao
+    })
+
+#################################### Você sabia? ##############################################
+def voce_sabia(request):
+    informacao = VoceSabia.objects.last()
+
+    if not informacao:
+        informacao = VoceSabia.objects.create(
+            titulo_1='', conteudo_1='',
+            titulo_2='', conteudo_2=''
+        )
+
+    if request.method == 'POST':
+        informacao.titulo_1 = request.POST.get('titulo_1', '')
+        informacao.conteudo_1 = request.POST.get('conteudo_1', '')
+        informacao.titulo_2 = request.POST.get('titulo_2', '')
+        informacao.conteudo_2 = request.POST.get('conteudo_2', '')
+        informacao.save()
+        return redirect('condosync:home')
+
+    return render(request, 'condosync/pages/voce_sabia.html', {
+        'informacao': informacao
     })
