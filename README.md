@@ -201,8 +201,11 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
   <a href="https://fds-project.atlassian.net/jira/your-work">
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
   </a>
-  <a href="#">
+  <a href="https://youtu.be/qPmGfqELL7w">
     <img src="https://img.shields.io/badge/Screencast Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Screencast Protótipo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
   <a href="https://youtu.be/uKqEkYZwPf8">
     <img src="https://img.shields.io/badge/Screencast Testes-00FF00?style=for-the-badge" />
