@@ -6,7 +6,7 @@
 
 <br>
 <p align="center">
-  <a href="https://condosync.azurewebsites.net/">
+  <a href="https://condosyncgg.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
@@ -15,6 +15,7 @@
   <a href="https://www.youtube.com/playlist?list=PLeHBP6nFOf9jqq0qquZCcB6b7QM5YPM75">
     <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
+  
 </p>
 
 ## Descrição
@@ -166,7 +167,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
   <summary><h2><strong>Entrega 2</strong></h2></summary>
   <br>
   <p align="center">
-  <a href="https://condosync.azurewebsites.net/">
+  <a href="https://condosyncgg.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
@@ -194,16 +195,36 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 <details>
   <summary><h2><strong>Entrega 3</strong></h2></summary>
   <p align="center">
-  <a href="https://condosync.azurewebsites.net/">
+  <a href="https://condosyncgg.azurewebsites.net/">
     <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
   </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  <a href="https://youtu.be/qPmGfqELL7w">
+    <img src="https://img.shields.io/badge/Screencast Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Screencast Protótipo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+  <a href="https://youtu.be/uKqEkYZwPf8">
+    <img src="https://img.shields.io/badge/Screencast Testes-00FF00?style=for-the-badge" />
+  </a>
+  <a href="https://docs.google.com/document/d/1km2Mf0yh84b1T0vPWuO5kAGjHTdI2k5dvFS940Ft5VI/edit?usp=sharing">
+  <img src="https://img.shields.io/badge/Relato Programação em Par-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
 </p>
+
+## Screencast CI/CD
+  
+## Issue/Bugtracker
+![Bugtracker/Issue](https://github.com/user-attachments/assets/b9705c44-fde5-4b6c-910a-fd30da645dfd)
+
+## Quadro 
+![Quadro](https://github.com/user-attachments/assets/b66cf043-238d-4abb-8c69-e41e094a51f2)
+
+## Backlog
+![Backlog](https://github.com/user-attachments/assets/57deb326-ce99-48ab-a029-674a6e80da7d)
+ 
 
 </details>
 
