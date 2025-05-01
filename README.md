@@ -201,12 +201,14 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
   <a href="https://fds-project.atlassian.net/jira/your-work">
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
   </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  <a href="https://youtu.be/uKqEkYZwPf8">
+    <img src="https://img.shields.io/badge/Screencast Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
   <a href="https://docs.google.com/document/d/1km2Mf0yh84b1T0vPWuO5kAGjHTdI2k5dvFS940Ft5VI/edit?usp=sharing">
   <img src="https://img.shields.io/badge/Relato Programação em Par-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
 </p>
+
+## Screencast CI/CD
   
 ## Issue/Bugtracker
 ![Bugtracker/Issue](https://github.com/user-attachments/assets/b9705c44-fde5-4b6c-910a-fd30da645dfd)
@@ -216,6 +218,7 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 
 ## Backlog
 ![Backlog](https://github.com/user-attachments/assets/57deb326-ce99-48ab-a029-674a6e80da7d)
+ 
 
 </details>
 
