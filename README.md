@@ -227,5 +227,21 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 
 <details>
   <summary><h2><strong>Entrega 4</strong></h2></summary>
+  <br>
+  <p align="center">
+    <a href="https://condosyncgg.azurewebsites.net/">
+      <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
+    </a>
+    <a href="https://fds-project.atlassian.net/jira/your-work">
+      <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
+    </a>
+    <a href="https://youtu.be/Xd9rIG3z3AA">
+      <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+    </a>
+    <a href="#">
+      <img src="https://img.shields.io/badge/Screencast Testes-00FF00?style=for-the-badge" />
+    </a>
+  </p>
+
 
 </details>
