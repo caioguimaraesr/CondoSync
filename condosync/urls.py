@@ -44,5 +44,8 @@ urlpatterns = [
     path('sugestoes/delete/<int:id>', views.delete_sugestoes, name='delete_sugestoes'),
 
     ## Você sabia...?
-    path('voce_sabia/', views.voce_sabia, name='voce_sabia')
+    path('voce_sabia/', views.voce_sabia, name='voce_sabia'),
+
+    ## Reserva de Áreas Comuns
+    
 ]

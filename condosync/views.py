@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Reserva
 from django.contrib import messages
 from django.utils import timezone
 from django.http import HttpResponseForbidden
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 def is_admin(user):
@@ -431,3 +432,5 @@ def voce_sabia(request):
     return render(request, 'condosync/pages/voce_sabia.html', {
         'informacao': informacao
     })
+
+#################################### Reservas ##############################################

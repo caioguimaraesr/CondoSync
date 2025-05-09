@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from datetime import datetime, timedelta
 
 # Create your models here.
 class Apartamento(models.Model):
@@ -93,3 +95,13 @@ class VoceSabia(models.Model):
 
     def __str__(self):
         return f"Você sabia? - Criado em {self.criado_em.strftime('%d/%m/%Y')}"
+    
+class Reserva(models.Model):
+    area_nome = models.CharField(max_length=100) 
+    morador = models.ForeignKey(User, on_delete=models.CASCADE)
+    data_reserva = models.DateField()
+    horario = models.TimeField()
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.area_nome} - {self.data_reserva} ({self.horario})"
