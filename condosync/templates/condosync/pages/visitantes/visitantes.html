@@ -25,8 +25,8 @@
 
             {% if user.is_superuser %}
                 <div class="top-funcionarios">
-                    <a href="#" class="btn-adicionar">
-                        <i class='bx bx-plus'></i> Adicionar Funcionário
+                    <a href="{% url "condosync:create_visitantes" %}" class="btn-adicionar">
+                        <i class='bx bx-plus'></i> Adicionar Visitante
                     </a>
                 </div>
             {% endif %}

@@ -492,3 +492,28 @@ def visitantes(request):
     return render(request, 'condosync/pages/visitantes/visitantes.html', {
         'visitantes': visitantes
     })
+
+def create_visitantes(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cpf = request.POST.get('cpf')
+        apartamento_id = request.POST.get('apartamento')
+
+        if Visitante.objects.filter(cpf=cpf).exists():
+            messages.error(request, 'CPF já cadastrado!')
+            return redirect('condosync:create_visitantes')
+        
+        if nome and cpf and apartamento_id:
+            apartamento = Apartamento.objects.get(id=apartamento_id)
+            visitante = Visitante(
+                nome=nome,
+                cpf=cpf,
+                apartamento=apartamento
+            )
+            visitante.save()
+            return redirect('condosync:visitantes') 
+
+    apartamentos = Apartamento.objects.all()
+    return render(request, 'condosync/pages/visitantes/create_visitantes.html', context={
+        'apartamentos': apartamentos
+        })

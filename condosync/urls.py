@@ -54,6 +54,7 @@ urlpatterns = [
 
     ## Visitantes
     path('visitantes/', views.visitantes, name='visitantes'),
+    path('visitantes/create_visitantes/', views.create_visitantes, name='create_visitantes'),
 
     ## Reserva de Áreas Comuns
     

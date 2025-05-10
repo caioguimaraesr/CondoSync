@@ -1,11 +1,11 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CondoSync | Home</title>
+    <title>CondoSync | Visitantes</title>
     <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -18,31 +18,45 @@
         <!-- main section start -->
         <main>
             <div class="dashboard">
-                <i class='bx bxs-user-circle'></i>
-                <h1>FUNCIONÁRIOS</h1>
+                <i class='bx bxs-user-account'></i>
+                <h1>VISITANTES</h1>
             </div>
 
             <div class="form-funcionario">
                 <form method="post">
                     {% csrf_token %}
-                    <h1 style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;"> Adicionar Funcionarios </h1>
+
+                    <div class="messages-text" style="display: flex; align-items: center; justify-content: center; margin-bottom: 5px;">
+                        {% include "userauth/partials/messages.html" %}
+                    </div>
+
+                    <h1 style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">Adicionar Visitante</h1>
+
                     <div class="campo-funcionario">
                         <label for="id_nome">Nome:</label>
                         <input type="text" name="nome" id="id_nome" required>
                     </div>
 
                     <div class="campo-funcionario">
-                        <label for="id_cargo">Cargo:</label>
-                        <input type="text" name="cargo" id="id_cargo" required>
+                        <label for="id_cpf">CPF:</label>
+                        <input type="text" name="cpf" id="id_cpf" required>
+                    </div>
+
+                    <div class="campo-funcionario">
+                        <label for="id_apartamento">Apartamento:</label>
+                        <select name="apartamento" id="id_apartamento" required>
+                            {% for apartamento in apartamentos %}
+                                <option value="{{ apartamento.id }}">{{ apartamento.numero }} - {{ apartamento.morador.get_full_name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
 
                     <div class="acoes-funcionario">
                         <button type="submit" class="btn btn-salvar">Salvar</button>
-                        <a href="{% url 'condosync:funcionarios' %}" class="btn btn-cancelar">Cancelar</a>
+                        <a href="{% url 'condosync:visitantes' %}" class="btn btn-cancelar">Cancelar</a>
                     </div>
                 </form>
             </div>
-
         </main>
         <!-- main section end -->
 
@@ -51,6 +65,6 @@
         <!-- right section end -->
     </div>
 
-    <script src="{% static "condosync/js/scripts.js" %}"></script>
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
 </body>
 </html>
