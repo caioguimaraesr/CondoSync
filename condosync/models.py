@@ -105,3 +105,10 @@ class Reserva(models.Model):
 
     def __str__(self):
         return f"{self.area_nome} - {self.data_reserva} ({self.horario})"
+    
+class Funcionario(models.Model):
+    nome = models.CharField(max_length=100)
+    cargo = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nome

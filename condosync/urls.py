@@ -46,6 +46,9 @@ urlpatterns = [
     ## Você sabia...?
     path('voce_sabia/', views.voce_sabia, name='voce_sabia'),
 
+    ## Funcionarios
+    path('funcionarios/', views.funcionarios, name='funcionarios'),
+
     ## Reserva de Áreas Comuns
     
 ]

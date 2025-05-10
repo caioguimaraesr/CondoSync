@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Reserva
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Reserva, Funcionario
 from django.contrib import messages
 from django.utils import timezone
 from django.http import HttpResponseForbidden
@@ -434,3 +434,13 @@ def voce_sabia(request):
     })
 
 #################################### Reservas ##############################################
+
+
+
+#################################### Funcionarios ##############################################
+def funcionarios(request):
+    funcionarios = Funcionario.objects.all()
+    return render(request, 'condosync/pages/funcionarios/funcionarios.html', context={
+        'funcionarios': funcionarios
+        })
+

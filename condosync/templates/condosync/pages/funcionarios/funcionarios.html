@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Funcionários</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-user-circle'></i>
+                <h1>FUNCIONÁRIOS</h1>
+            </div>
+
+            <div class="btn-adicionar-container">
+                <a href="#" class="btn btn-adicionar">+ Adicionar Funcionário</a>
+            </div>
+
+            <div class="lista-funcionarios">
+                {% for funcionario in funcionarios %}
+                    <div class="box-funcionario">
+                        <div class="img-funcionario">
+                            <img src="{% static "condosync/images/foto-de-perfil.png" %}" alt="">
+                        </div>
+                        <div class="info-funcionario">
+                            <h3>{{ funcionario.nome }}</h3>
+                            <h4>{{ funcionario.cargo }}</h4>
+                            {% if user.is_superuser %}
+                                <div class="botoes-funcionario">
+                                    <a href="#" class="btn editar">Editar</a>
+                                    <a href="#" class="btn excluir">Excluir</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Não há funcionários cadastrados no momento.</p>
+                {% endfor %}
+            </div>
+
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>
