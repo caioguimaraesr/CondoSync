@@ -1879,6 +1879,172 @@ main .box-sugestoes .text p {
     background-color: var(--clr-primary-variant);
 }
 
+/**************** main reservas ****************/
+.list-reservas {
+    padding: 2rem;
+}
+
+.elements-reservas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Aumentei o valor do minmax para garantir um tamanho mínimo maior */
+    gap: 2rem;
+}
+
+.box-reservas {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    display: flex; /* Usei flexbox para centralizar o conteúdo */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-reservas:hover {
+    transform: scale(1.03);
+    border-color: #007bff;
+}
+
+.box-reservas i {
+    font-size: 4rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.box-reservas h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.box-reservas .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.box-reservas .btn:hover {
+    background-color: #0056b3;
+}
+
+/* === Página Criar Reserva === */
+
+.form-reserva {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e0e0e0;
+    width: 50%;
+}
+
+.form-reserva form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input[type="date"],
+.form-group select {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between; /* Um botão vai para a esquerda e o outro para a direita */
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn.btn-salvar {
+    background-color: var(--clr-primary);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.btn.btn-salvar:hover {
+    background-color: var(--clr-primary-variant);
+}
+
+.btn.btn-cancelar {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.btn.btn-cancelar:hover {
+    background-color: #ccc;
+}
+
+.messages {
+    margin-top: 1.5rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+.messages li {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.messages .success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.messages .error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
 
 /*************************************************
               RIGHT SECTION STYLE

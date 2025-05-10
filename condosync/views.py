@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Reserva, Funcionario, Visitante
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Funcionario, Visitante, AreaComum, Horario, Reserva
 from django.contrib import messages
 from django.utils import timezone
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, JsonResponse
 from django.core.exceptions import ValidationError
 
 # Create your views here.
@@ -571,3 +571,46 @@ def edit_visitantes(request, id):
     })
 
 #################################### Reservas ##############################################
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import AreaComum, Horario, Reserva
+
+def reservas(request):
+    areas = AreaComum.objects.all()
+    return render(request, 'condosync/pages/reservas/reservas.html', {'areas': areas})
+
+def criar_reserva(request, id):
+    area = get_object_or_404(AreaComum, id=id)
+    horarios = Horario.objects.all()
+
+    if request.method == 'POST':
+        data = request.POST.get('data')
+        horario_id = request.POST.get('horario')
+        horario = get_object_or_404(Horario, id=horario_id)
+
+        if Reserva.objects.filter(area=area, data=data, horario=horario).exists():
+            messages.error(request, 'Já existe uma reserva para essa área nesse horário.')
+            return redirect('condosync:criar_reserva', id=area.id)
+
+        Reserva.objects.create(
+            usuario=request.user,
+            area=area,
+            data=data,
+            horario=horario
+        )
+        messages.success(request, 'Reserva realizada com sucesso!')
+        return redirect('condosync:reservas')
+
+    return render(request, 'condosync/pages/reservas/criar_reserva.html', {
+        'area': area,
+        'horarios': horarios
+    })
+
+def horarios_ocupados(request):
+    area_id = request.GET.get('area_id')
+    data = request.GET.get('data')
+
+    reservas = Reserva.objects.filter(area_id=area_id, data=data)
+    horarios_ocupados = reservas.values_list('horario_id', flat=True)
+
+    return JsonResponse(list(horarios_ocupados), safe=False)

@@ -60,5 +60,8 @@ urlpatterns = [
     path('visitantes/edit_visitantes/<int:id>', views.edit_visitantes, name='edit_visitantes'),
 
     ## Reserva de Áreas Comuns
-    
+    path('reservas/', views.reservas, name='reservas'),
+    path('reservas/criar_reserva/<int:id>', views.criar_reserva, name='criar_reserva'),
+    path('reservas/horarios_ocupados/', views.horarios_ocupados, name='horarios_ocupados'),
+
 ]

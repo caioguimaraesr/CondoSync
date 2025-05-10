@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Reservas</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="container">
+    <!-- side bar section start -->
+    {% include "condosync/partials/sidebar.html" %}
+    <!-- side bar section end -->
+
+    <!-- main section start -->
+    <main>
+        <div class="dashboard">
+            <i class='bx bxs-calendar'></i>
+            <h1>RESERVAS</h1>
+        </div>
+
+        <div class="list-reservas">
+            <div class="elements-reservas">
+                {% for area in areas %}
+                    <div class="box-reservas">
+                        <i class='{{ area.icone }}'></i>
+                        <h1>{{ area.nome }}</h1>
+                        <a href="{% url "condosync:criar_reserva" area.id %}" class="btn btn-salvar">Reservar</a>
+                    </div>
+                {% empty %}
+                    <p>Nenhuma área comum cadastrada.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <!-- main section end -->
+
+    <!-- right section start -->
+    {% include "condosync/partials/right_section.html" %}
+    <!-- right section end -->
+</div>
+
+<script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>

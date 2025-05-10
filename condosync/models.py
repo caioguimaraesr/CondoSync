@@ -112,13 +112,34 @@ class Visitante(models.Model):
     def __str__(self):
         return f'{self.nome} - Apto {self.apartamento.numero}'
 
-class Reserva(models.Model):
-    area_nome = models.CharField(max_length=100) 
-    morador = models.ForeignKey(User, on_delete=models.CASCADE)
-    data_reserva = models.DateField()
-    horario = models.TimeField()
-    criado_em = models.DateTimeField(auto_now_add=True)
+class AreaComum(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField(blank=True)
+    icone = models.CharField(max_length=50, help_text="Classe do ícone do BoxIcons, ex: 'bx bxs-party'")
+    ativo = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.area_nome} - {self.data_reserva} ({self.horario})"
+        return self.nome
+
+class Horario(models.Model):
+    hora_inicio = models.TimeField()
+    hora_fim = models.TimeField()
+
+    def __str__(self):
+        return f"{self.hora_inicio} - {self.hora_fim}"
+
+class Reserva(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    area = models.ForeignKey(AreaComum, on_delete=models.CASCADE, default=1)
+    data = models.DateField()
+    horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
+
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('area', 'data', 'horario')
+        ordering = ['-data', '-horario']
+
+    def __str__(self):
+        return f"{self.area.nome} - {self.usuario.get_full_name()} ({self.data}) {self.horario}"
     
