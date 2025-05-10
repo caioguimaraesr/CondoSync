@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Visitantes</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+
+            <div class="dashboard">
+                <i class='bx bx-id-card'></i>
+                <h1>VISITANTES</h1>
+            </div>
+
+            {% if user.is_superuser %}
+                <div class="top-funcionarios">
+                    <a href="#" class="btn-adicionar">
+                        <i class='bx bx-plus'></i> Adicionar Funcionário
+                    </a>
+                </div>
+            {% endif %}
+
+            <div class="lista-visitantes">
+                {% for visitante in visitantes %}
+                    <div class="box-visitante">
+                        <div class="img-visitante">
+                            <img src="{% static 'condosync/images/foto-de-perfil.png' %}" alt="Foto do visitante">
+                        </div>
+                        <div class="visitante-info">
+                            <h2>{{ visitante.nome }}</h2>
+                            <h4>CPF: {{ visitante.cpf }}</h4>
+                            <h4>Apto: {{ visitante.apartamento.numero }}</h4>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Não há visitantes cadastrados no momento.</p>
+                {% endfor %}
+            </div>
+
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>

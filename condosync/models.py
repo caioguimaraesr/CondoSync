@@ -112,3 +112,12 @@ class Funcionario(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class Visitante(models.Model):
+    nome = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=14, unique=True)
+    apartamento = models.ForeignKey(Apartamento, on_delete=models.CASCADE, related_name='visitantes')
+    data_visita = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.nome} - Apto {self.apartamento.numero}'

@@ -37,7 +37,7 @@
             <h3>Funcionarios</h3>
         </a>
         {% if user.is_superuser %}
-        <a href="#" id="menu-visitantes">
+        <a href="{% url "condosync:visitantes" %}" id="menu-visitantes">
             <i class='bx bx-door-open' id="icon-visitantes"></i>
             <h3>Visitantes</h3>
         </a>

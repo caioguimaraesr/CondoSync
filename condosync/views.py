@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Reserva, Funcionario
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Reserva, Funcionario, Visitante
 from django.contrib import messages
 from django.utils import timezone
 from django.http import HttpResponseForbidden
@@ -485,3 +485,10 @@ def delete_funcionarios(request, id):
     return render(request, 'condosync/pages/funcionarios/delete_funcionarios.html', context={
         'funcionario': funcionario
         })
+
+#################################### Funcionarios ##############################################
+def visitantes(request):
+    visitantes = Visitante.objects.all().order_by('-data_visita')
+    return render(request, 'condosync/pages/visitantes/visitantes.html', {
+        'visitantes': visitantes
+    })
