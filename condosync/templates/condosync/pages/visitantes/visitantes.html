@@ -19,17 +19,19 @@
         <main>
 
             <div class="dashboard">
-                <i class='bx bx-id-card'></i>
+                <i class='bx bxs-id-card'></i>
                 <h1>VISITANTES</h1>
             </div>
 
-            {% if user.is_superuser %}
-                <div class="top-funcionarios">
-                    <a href="{% url "condosync:create_visitantes" %}" class="btn-adicionar">
-                        <i class='bx bx-plus'></i> Adicionar Visitante
+                <div class="top-visitantes">
+                    <a href="{% url "condosync:create_visitantes" %}" class="btn-adicionar-visitante">
+                        <i class='bx bx-plus'></i> Adicionar
+                    </a>
+                    
+                    <a href="{% url "condosync:gerenciar_visitantes" %}" class="btn-adicionar-visitante">
+                        <i class='bx bx-cog'></i> Gerenciar
                     </a>
                 </div>
-            {% endif %}
 
             <div class="lista-visitantes">
                 {% for visitante in visitantes %}

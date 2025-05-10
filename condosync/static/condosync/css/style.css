@@ -1830,20 +1830,17 @@ main .box-sugestoes .text p {
     transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* Foco no select */
 .campo-funcionario select:focus {
     border-color: #007bff;
     background-color: #fff;
 }
 
-/* Estilo da opção dentro do select */
 .campo-funcionario select option {
     padding: 10px;
     font-size: 1rem;
     background-color: #fff;
 }
 
-/* Estilo para o label */
 .campo-funcionario label {
     font-size: 1rem;
     font-weight: 600;
@@ -1852,10 +1849,36 @@ main .box-sugestoes .text p {
     display: block;
 }
 
-/* Pequeno ajuste para o layout de campos de formulário */
 .campo-funcionario {
     margin-bottom: 1.5rem;
 }
+
+.top-visitantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.btn-adicionar-visitante {
+    background-color: var(--clr-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color 0.3s ease;
+    margin-left: 1rem;
+}
+
+.btn-adicionar-visitante:hover {
+    background-color: var(--clr-primary-variant);
+}
+
 
 /*************************************************
               RIGHT SECTION STYLE

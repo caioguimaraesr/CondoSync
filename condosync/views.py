@@ -517,3 +517,10 @@ def create_visitantes(request):
     return render(request, 'condosync/pages/visitantes/create_visitantes.html', context={
         'apartamentos': apartamentos
         })
+
+@login_required(login_url='userauth:login_register')
+def gerenciar_visitantes(request):
+    visitantes = Visitante.objects.all()
+    return render(request, 'condosync/pages/visitantes/gerenciar_visitantes.html', context={
+        'visitantes': visitantes
+    })
