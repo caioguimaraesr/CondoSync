@@ -614,3 +614,25 @@ def horarios_ocupados(request):
     horarios_ocupados = reservas.values_list('horario_id', flat=True)
 
     return JsonResponse(list(horarios_ocupados), safe=False)
+
+@login_required
+def listar_reservas_area(request, id):
+    area = get_object_or_404(AreaComum, id=id)
+    reservas = Reserva.objects.filter(area=area).order_by('data', 'horario')
+
+    return render(request, 'condosync/pages/reservas/listar_reservas.html', {
+        'area': area,
+        'reservas': reservas
+    })
+
+@login_required
+def delete_reserva(request, id):
+    reserva = get_object_or_404(Reserva, id=id)
+
+    if request.user == reserva.usuario or request.user.is_superuser:
+        reserva.delete()
+        messages.success(request, "Reserva deletada com sucesso!")
+    else:
+        messages.error(request, "Você não tem permissão para deletar essa reserva.")
+
+    return redirect('condosync:listar_reservas_area', id=reserva.area.id)
