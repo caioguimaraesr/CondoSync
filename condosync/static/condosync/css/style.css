@@ -1575,11 +1575,11 @@ main .box-sugestoes .text p {
 /*************** main funcionarios ****************/
 .lista-funcionarios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
+    width: 100%;
 }
 
-/* Card do funcionário em formato vertical */
 .box-funcionario {
     margin-top: 1rem;
     background-color: #fff;
@@ -1588,11 +1588,8 @@ main .box-sugestoes .text p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.box-funcionario:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .img-funcionario img {
@@ -1605,6 +1602,7 @@ main .box-sugestoes .text p {
 
 .info-funcionario {
     padding: 1rem;
+    flex-grow: 1; 
 }
 
 .info-funcionario h3 {
@@ -1640,19 +1638,19 @@ main .box-sugestoes .text p {
 }
 
 .btn.editar {
-    background-color: #3498db;
+    background-color: var(--clr-primary);
 }
 
 .btn.editar:hover {
-    background-color: #2980b9;
+    background-color: var(--clr-primary-variant);
 }
 
 .btn.excluir {
-    background-color: #e74c3c;
+    background-color: var(--clr-danger);
 }
 
 .btn.excluir:hover {
-    background-color: #c0392b;
+    background-color: red;
 }
 
 /* Container do botão adicionar */
