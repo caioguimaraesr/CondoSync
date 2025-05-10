@@ -23,7 +23,7 @@
             </div>
 
             <div class="btn-adicionar-container">
-                <a href="#" class="btn btn-adicionar">+ Adicionar Funcionário</a>
+                <a href="{% url "condosync:create_funcionarios" %}" class="btn btn-adicionar">+ Adicionar Funcionário</a>
             </div>
 
             <div class="lista-funcionarios">
@@ -37,7 +37,7 @@
                             <h4>{{ funcionario.cargo }}</h4>
                             {% if user.is_superuser %}
                                 <div class="botoes-funcionario">
-                                    <a href="#" class="btn editar">Editar</a>
+                                    <a href="{% url "condosync:edit_funcionarios" funcionario.id %}" class="btn editar">Editar</a>
                                     <a href="#" class="btn excluir">Excluir</a>
                                 </div>
                             {% endif %}

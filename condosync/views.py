@@ -444,3 +444,33 @@ def funcionarios(request):
         'funcionarios': funcionarios
         })
 
+def create_funcionarios(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cargo = request.POST.get('cargo')
+
+        Funcionario.objects.create(
+            nome=nome,
+            cargo=cargo,
+        )
+
+        return redirect('condosync:funcionarios')  
+
+    return render(request, 'condosync/pages/funcionarios/create_funcionarios.html')
+
+def edit_funcionarios(request, id):
+    funcionario = get_object_or_404(Funcionario, id=id)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cargo = request.POST.get('cargo')
+
+        funcionario.nome = nome
+        funcionario.cargo = cargo
+        funcionario.save()
+
+        return redirect('condosync:funcionarios')
+
+    return render(request, 'condosync/pages/funcionarios/edit_funcionarios.html', context={
+        'funcionario': funcionario
+        })

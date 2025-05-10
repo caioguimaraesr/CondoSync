@@ -1678,6 +1678,74 @@ main .box-sugestoes .text p {
     background-color: var(--clr-primary-variant);
 }
 
+
+/* Form Funcioarios (Adicionar) */
+.form-funcionario {
+    margin-top: 1rem;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.campo-funcionario {
+    margin-bottom: 1.5rem;
+}
+.campo-funcionario label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.campo-funcionario input[type="text"],
+.campo-funcionario input[type="file"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.acoes-funcionario {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-salvar {
+    background-color: var(--clr-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-salvar:hover {
+    background-color: var(--clr-primary-variant);
+}
+
+.btn-cancelar {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-cancelar:hover {
+    background-color: #95a5a6;
+}
+
 /*************************************************
               RIGHT SECTION STYLE
 *************************************************/
