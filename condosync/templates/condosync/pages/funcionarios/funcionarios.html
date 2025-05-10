@@ -38,7 +38,7 @@
                             {% if user.is_superuser %}
                                 <div class="botoes-funcionario">
                                     <a href="{% url "condosync:edit_funcionarios" funcionario.id %}" class="btn editar">Editar</a>
-                                    <a href="#" class="btn excluir">Excluir</a>
+                                    <a href="{% url "condosync:delete_funcionarios" funcionario.id %}" class="btn excluir">Excluir</a>
                                 </div>
                             {% endif %}
                         </div>

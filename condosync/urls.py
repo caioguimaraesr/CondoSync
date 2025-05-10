@@ -50,6 +50,8 @@ urlpatterns = [
     path('funcionarios/', views.funcionarios, name='funcionarios'),
     path('funcionarios/create_funcionarios/', views.create_funcionarios, name="create_funcionarios"),
     path('funcionarios/edit_funcionarios/<int:id>/', views.edit_funcionarios, name="edit_funcionarios"),
+    path('funcionarios/delete_funcionarios/<int:id>/', views.delete_funcionarios, name="delete_funcionarios"),
+
 
     ## Reserva de Áreas Comuns
     

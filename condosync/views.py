@@ -474,3 +474,14 @@ def edit_funcionarios(request, id):
     return render(request, 'condosync/pages/funcionarios/edit_funcionarios.html', context={
         'funcionario': funcionario
         })
+
+def delete_funcionarios(request, id):
+    funcionario = get_object_or_404(Funcionario, id=id)
+
+    if request.method == 'POST':
+        funcionario.delete()
+        return redirect('condosync:funcionarios')
+
+    return render(request, 'condosync/pages/funcionarios/delete_funcionarios.html', context={
+        'funcionario': funcionario
+        })
