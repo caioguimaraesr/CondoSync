@@ -96,16 +96,6 @@ class VoceSabia(models.Model):
     def __str__(self):
         return f"Você sabia? - Criado em {self.criado_em.strftime('%d/%m/%Y')}"
     
-class Reserva(models.Model):
-    area_nome = models.CharField(max_length=100) 
-    morador = models.ForeignKey(User, on_delete=models.CASCADE)
-    data_reserva = models.DateField()
-    horario = models.TimeField()
-    criado_em = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.area_nome} - {self.data_reserva} ({self.horario})"
-    
 class Funcionario(models.Model):
     nome = models.CharField(max_length=100)
     cargo = models.CharField(max_length=100)
@@ -121,3 +111,14 @@ class Visitante(models.Model):
 
     def __str__(self):
         return f'{self.nome} - Apto {self.apartamento.numero}'
+
+class Reserva(models.Model):
+    area_nome = models.CharField(max_length=100) 
+    morador = models.ForeignKey(User, on_delete=models.CASCADE)
+    data_reserva = models.DateField()
+    horario = models.TimeField()
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.area_nome} - {self.data_reserva} ({self.horario})"
+    

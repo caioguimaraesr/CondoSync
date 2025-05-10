@@ -433,17 +433,16 @@ def voce_sabia(request):
         'informacao': informacao
     })
 
-#################################### Reservas ##############################################
-
-
-
 #################################### Funcionarios ##############################################
+@login_required(login_url='userauth:login_register')
 def funcionarios(request):
     funcionarios = Funcionario.objects.all()
     return render(request, 'condosync/pages/funcionarios/funcionarios.html', context={
         'funcionarios': funcionarios
         })
 
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:funcionarios')
 def create_funcionarios(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
@@ -458,6 +457,8 @@ def create_funcionarios(request):
 
     return render(request, 'condosync/pages/funcionarios/create_funcionarios.html')
 
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:funcionarios')
 def edit_funcionarios(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)
 
@@ -475,6 +476,8 @@ def edit_funcionarios(request, id):
         'funcionario': funcionario
         })
 
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:funcionarios')
 def delete_funcionarios(request, id):
     funcionario = get_object_or_404(Funcionario, id=id)
 
@@ -487,12 +490,16 @@ def delete_funcionarios(request, id):
         })
 
 #################################### Funcionarios ##############################################
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
 def visitantes(request):
     visitantes = Visitante.objects.all().order_by('-data_visita')
     return render(request, 'condosync/pages/visitantes/visitantes.html', {
         'visitantes': visitantes
     })
 
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
 def create_visitantes(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
@@ -519,12 +526,15 @@ def create_visitantes(request):
         })
 
 @login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
 def gerenciar_visitantes(request):
     visitantes = Visitante.objects.all()
     return render(request, 'condosync/pages/visitantes/gerenciar_visitantes.html', context={
         'visitantes': visitantes
     })
 
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
 def delete_visitantes(request, id):
     visitante = get_object_or_404(Visitante, id=id)
 
@@ -536,6 +546,8 @@ def delete_visitantes(request, id):
         'visitante': visitante
     })
 
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
 def edit_visitantes(request, id):
     visitante = get_object_or_404(Visitante, id=id)
 
@@ -557,3 +569,5 @@ def edit_visitantes(request, id):
         'visitante': visitante,
         'apartamentos': apartamentos
     })
+
+#################################### Reservas ##############################################

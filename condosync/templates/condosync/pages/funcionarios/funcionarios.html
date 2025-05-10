@@ -22,10 +22,11 @@
                 <h1>FUNCIONÁRIOS</h1>
             </div>
 
+            {% if user.is_superuser %}
             <div class="btn-adicionar-container">
                 <a href="{% url "condosync:create_funcionarios" %}" class="btn btn-adicionar">+ Adicionar Funcionário</a>
             </div>
-
+            {% endif %}
             <div class="lista-funcionarios">
                 {% for funcionario in funcionarios %}
                     <div class="box-funcionario">
