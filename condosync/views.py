@@ -524,3 +524,36 @@ def gerenciar_visitantes(request):
     return render(request, 'condosync/pages/visitantes/gerenciar_visitantes.html', context={
         'visitantes': visitantes
     })
+
+def delete_visitantes(request, id):
+    visitante = get_object_or_404(Visitante, id=id)
+
+    if request.method == 'POST':
+        visitante.delete()
+        return redirect('condosync:gerenciar_visitantes')
+
+    return render(request, 'condosync/pages/visitantes/delete_visitantes.html', context={
+        'visitante': visitante
+    })
+
+def edit_visitantes(request, id):
+    visitante = get_object_or_404(Visitante, id=id)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cpf = request.POST.get('cpf')
+        apartamento_id = request.POST.get('apartamento')
+
+        visitante.nome = nome
+        visitante.cpf = cpf
+        visitante.apartamento = get_object_or_404(Apartamento, id=apartamento_id)
+        visitante.save()
+
+        return redirect('condosync:gerenciar_visitantes')
+
+    apartamentos = Apartamento.objects.all()
+
+    return render(request, 'condosync/pages/visitantes/edit_visitantes.html', context={
+        'visitante': visitante,
+        'apartamentos': apartamentos
+    })

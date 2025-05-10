@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Editar Visitante</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-user-account'></i>
+                <h1>EDITAR VISITANTE</h1>
+            </div>
+
+            <div class="form-funcionario">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="messages-text" style="display: flex; align-items: center; justify-content: center; margin-bottom: 5px;">
+                        {% include "userauth/partials/messages.html" %}
+                    </div>
+
+                    <h1 style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">Editar Visitante</h1>
+
+                    <div class="campo-funcionario">
+                        <label for="id_nome">Nome:</label>
+                        <input type="text" name="nome" id="id_nome" value="{{ visitante.nome }}" required>
+                    </div>
+
+                    <div class="campo-funcionario">
+                        <label for="id_cpf">CPF:</label>
+                        <input type="text" name="cpf" id="id_cpf" value="{{ visitante.cpf }}" required>
+                    </div>
+
+                    <div class="campo-funcionario">
+                        <label for="id_apartamento">Apartamento:</label>
+                        <select name="apartamento" id="id_apartamento" required>
+                            {% for apartamento in apartamentos %}
+                                <option value="{{ apartamento.id }}" {% if visitante.apartamento.id == apartamento.id %}selected{% endif %}>
+                                    {{ apartamento.numero }} - {{ apartamento.morador.get_full_name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="acoes-funcionario">
+                        <button type="submit" class="btn btn-salvar">Salvar</button>
+                        <a href="{% url 'condosync:gerenciar_visitantes' %}" class="btn btn-cancelar">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>

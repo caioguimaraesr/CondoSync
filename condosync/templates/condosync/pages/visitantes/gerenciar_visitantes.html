@@ -26,10 +26,10 @@
                 {% for visitante in visitantes %}
                     <div class="veiculos-elements">
                         <span>{{ visitante.nome }} - CPF: {{ visitante.cpf }}</span>
-                        <a href="#" class="editar-veiculo">
+                        <a href="{% url "condosync:edit_visitantes" visitante.id %}" class="editar-veiculo">
                             <i class='bx bxs-pencil'></i>
                         </a>
-                        <a href="#" class="deletar-veiculo">
+                        <a href="{% url "condosync:delete_visitantes" visitante.id %}" class="deletar-veiculo">
                             <i class='bx bx-x'></i>
                         </a>
                     </div>

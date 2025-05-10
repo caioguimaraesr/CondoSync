@@ -56,6 +56,8 @@ urlpatterns = [
     path('visitantes/', views.visitantes, name='visitantes'),
     path('visitantes/create_visitantes/', views.create_visitantes, name='create_visitantes'),
     path('visitantes/gerenciar_visitantes/', views.gerenciar_visitantes, name='gerenciar_visitantes'),
+    path('visitantes/delete_visitantes/<int:id>', views.delete_visitantes, name='delete_visitantes'),
+    path('visitantes/edit_visitantes/<int:id>', views.edit_visitantes, name='edit_visitantes'),
 
     ## Reserva de Áreas Comuns
     
