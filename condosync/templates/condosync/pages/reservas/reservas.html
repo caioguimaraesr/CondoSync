@@ -17,9 +17,14 @@
 
     <!-- main section start -->
     <main>
-        <div class="dashboard">
-            <i class='bx bxs-calendar'></i>
-            <h1>RESERVAS</h1>
+        <div class="dashboard-reserva">
+            <div class="dashboard">
+                <i class='bx bxs-calendar'></i>
+                <h1>RESERVAS</h1>
+                {% if user.is_superuser %}
+                    <a href="{% url "condosync:gerenciar_area" %}">+ Gerenciar</a>
+                {% endif %}
+            </div>
         </div>
 
         <div class="list-reservas">

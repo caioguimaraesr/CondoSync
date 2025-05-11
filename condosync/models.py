@@ -114,7 +114,6 @@ class Visitante(models.Model):
 
 class AreaComum(models.Model):
     nome = models.CharField(max_length=100)
-    descricao = models.TextField(blank=True)
     icone = models.CharField(max_length=50, help_text="Classe do ícone do BoxIcons, ex: 'bx bxs-party'")
     ativo = models.BooleanField(default=True)
 

@@ -20,9 +20,6 @@
                 <i class='bx bxs-calendar'></i>
                 <h1>Reservas da {{ area.nome }}</h1>
             </div>
-
-            <!-- Botão Listar Reservas -->
-            <a href="{% url 'condosync:listar_reservas_area' area.id %}" class="btn btn-listar">Listar Reservas</a>
             
             {% if reservas %}
                 <table class="tabela-reservas">
@@ -40,22 +37,28 @@
                                 <td>{{ reserva.data }}</td>
                                 <td>{{ reserva.horario }}</td>
                                 <td>{{ reserva.usuario.username }}</td>
+                                {% if user.is_superuser or reserva.usuario == user %}  
                                 <td>
                                     <form method="POST" style="display:inline;">
                                         {% csrf_token %}
                                         <a href="{% url 'condosync:delete_reserva' reserva.id %}" 
-                                           onclick="return confirm('Tem certeza que deseja deletar esta reserva?')" 
-                                           class="btn-deletar">
+                                        onclick="return confirm('Tem certeza que deseja deletar esta reserva?')" 
+                                        class="btn-deletar">
                                             Deletar
                                         </a>
                                     </form>
                                 </td>
+                                {% else %}
+                                <td>
+                                    -
+                                </td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             {% else %}
-                <p>Nenhuma reserva registrada para essa área.</p>
+                <p style="margin-top: 1rem;" >Nenhuma reserva registrada para essa área.</p>
             {% endif %}
 
             <div style="margin-top: 20px;">

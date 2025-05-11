@@ -1879,6 +1879,70 @@ main .box-sugestoes .text p {
     background-color: var(--clr-primary-variant);
 }
 
+main .dashboard-reserva .dashboard{
+    display: inline-block;
+    background-color: var(--clr-white);
+    border-radius: var(--border-radius-1);
+    padding: 1.5rem 1.6rem;
+}
+
+main .dashboard-reserva .dashboard h1{
+    font-size: 40px;   
+}
+
+main .dashboard-reserva .dashboard a {
+    margin-left: auto;
+    font-weight: 800;
+    color: var(--clr-primary);
+}
+
+main .dashboard-reserva .dashboard a:hover {
+    transform: scale(1.05);           /* Leve aumento no hover */
+    color: var(--clr-primary-variant);
+}
+
+main .dashboard-reserva .dashboard {
+    display: flex; 
+    align-items: center;
+}
+
+main .dashboard-reserva .dashboard i {
+    font-size: 3rem;
+    margin-right: 10px;
+}
+
+main .dashboard-area .dashboard{
+    display: inline-block;
+    background-color: var(--clr-white);
+    border-radius: var(--border-radius-1);
+    padding: 1.5rem 1.6rem;
+}
+
+main .dashboard-area .dashboard h1{
+    font-size: 40px;   
+}
+
+main .dashboard-area .dashboard a {
+    margin-left: auto;
+    font-weight: 800;
+    color: var(--clr-primary);
+    justify-content: flex-end;
+}
+
+main .dashboard-area .dashboard a:hover {
+    transform: scale(1.05);          
+    color: var(--clr-primary-variant);
+}
+
+main .dashboard-area .dashboard {
+    display: flex; 
+    align-items: center;
+}
+
+main .dashboard-area .dashboard i {
+    font-size: 3rem;
+    margin-right: 10px;
+}
 /**************** main reservas ****************/
 .list-reservas {
     padding: 2rem;
@@ -2085,6 +2149,27 @@ main .box-sugestoes .text p {
 
 .btn.btn-cancelar:hover {
     background-color: #d32f2f;
+}
+
+.btn-listar {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 24px;
+    background-color: #4a4aff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-listar:hover {
+    background-color: #3737cc;
 }
 
 /*************************************************

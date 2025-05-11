@@ -636,3 +636,39 @@ def delete_reserva(request, id):
         messages.error(request, "Você não tem permissão para deletar essa reserva.")
 
     return redirect('condosync:listar_reservas_area', id=reserva.area.id)
+
+################################### Área Comum ########################################
+
+def adicionar_area(request):
+    if request.method == "POST":
+        nome = request.POST.get("nome")
+        icone = request.POST.get("icone")
+        ativo = request.POST.get("ativo") == "on"
+
+        AreaComum.objects.create(
+            nome=nome,
+            icone=icone,
+            ativo=ativo
+        )
+
+        return redirect('condosync:reservas')
+
+    return render(request, 'condosync/pages/reservas/adicionar_area.html')
+
+def gerenciar_area(request):
+    areas = AreaComum.objects.all()
+    return render(request, 'condosync/pages/reservas/gerenciar_area.html', context={
+        'areas': areas
+    })
+
+def delete_area(request, id):
+    area = get_object_or_404(AreaComum, id=id)
+
+    if request.user.is_superuser:
+        area.delete()
+        messages.success(request, "Área comum deletada com sucesso!")
+    else:
+        messages.error(request, "Você não tem permissão para deletar esta área.")
+
+    return redirect('condosync:gerenciar_area')
+
