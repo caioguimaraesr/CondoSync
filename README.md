@@ -236,9 +236,9 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
       <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
     </a>
     <a href="#">
-      <img src="https://img.shields.io/badge/Screencasts-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+      <img src="https://img.shields.io/badge/Screencast Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
     </a>
-    <a href="#">
+    <a href="https://youtu.be/H2DUL7uR2l0">
       <img src="https://img.shields.io/badge/Screencast Testes-00FF00?style=for-the-badge" />
     </a>
   </p>
