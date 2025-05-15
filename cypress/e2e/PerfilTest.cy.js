@@ -65,11 +65,7 @@ Cypress.Commands.add('createSuperUser', (first_name, last_name, username, email,
 describe('Reservar área comum', () => {
     beforeEach(() => {
         cy.deleteAllApartamentos();
-        cy.deleteAllAreasComuns();
-        cy.deleteAllHorarios();
         cy.createApartamentos();
-        cy.createAreasComuns();
-        cy.createHorarios();
 
         cy.visit('/');
         cy.get('#register').click();
@@ -77,18 +73,21 @@ describe('Reservar área comum', () => {
         cy.login('testuser', 'password123');
     });
 
-    it('', () => {
-
-    });
-
-    it('Deletar reserva', () => {
-
+    it('Configurando o perfil', () => {
+        cy.get('.profile-photo > img').click();
+        cy.get('h1 > .bx').click();
+        cy.get('#id_telefone').type('81998253482');
+        cy.get('#id_instagram').type('cesarschool');
+        cy.get('#id_bio').type('Olá, nos somos os integrantes do condosync e estamos desenvolvendo esse site para a cadeira de FDS. ')
+        cy.get(':nth-child(1) > label > input').check();
+        cy.get(':nth-child(2) > label > input').check();
+        cy.get('.salvar').click();
+        cy.get('.cancelar').click();
+        cy.reload(true);
     });
 
     afterEach(() => {
       cy.deleteAllApartamentos();
-      cy.deleteAllAreasComuns();
-      cy.deleteAllHorarios();
       cy.deleteAllUsers();
     });
 });
