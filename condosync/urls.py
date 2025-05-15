@@ -68,4 +68,11 @@ urlpatterns = [
     path('reservas/deletar/<int:id>/', views.delete_reserva, name='delete_reserva'),
     path('reservas/adicionar_area/', views.adicionar_area, name='adicionar_area'),
     path('areas-comuns/delete/<int:id>/', views.delete_area, name='delete_area'),
+
+    ## Perfil
+    path('perfil/', views.perfil, name='perfil'),
+    path('editar-perfil-completo/', views.editar_perfil_completo, name='editar_perfil_completo'),
+    path('perfil/ocorrencias/ajax/', views.ocorrencias_perfil_ajax, name='ocorrencias_perfil_ajax'),
+    path('perfil/encomendas/ajax/', views.encomendas_perfil_ajax, name='encomendas_perfil_ajax'),
+    path('perfil/reservas/ajax/', views.reservas_perfil_ajax, name='reservas_perfil_ajax'),
 ]

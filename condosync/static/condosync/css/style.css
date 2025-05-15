@@ -64,7 +64,6 @@
     appearance: none;
 }
 
-
 body{
     font-family: 'Poppins', 'sans-serif';
     width: 100vw;
@@ -1950,7 +1949,7 @@ main .dashboard-area .dashboard i {
 
 .elements-reservas {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Aumentei o valor do minmax para garantir um tamanho mínimo maior */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
 }
 
@@ -1962,7 +1961,7 @@ main .dashboard-area .dashboard i {
     padding: 2rem 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease;
-    display: flex; /* Usei flexbox para centralizar o conteúdo */
+    display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
