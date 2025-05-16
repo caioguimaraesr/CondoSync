@@ -235,7 +235,7 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
     <a href="#">
       <img src="https://img.shields.io/badge/Screencast Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
     </a>
-    <a href="#">
+    <a href="https://youtu.be/S4ZlST3puBk?si=0KxUkvqegIc_DyQW">
       <img src="https://img.shields.io/badge/Screencast Protótipo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
     </a>
     <a href="https://youtu.be/H2DUL7uR2l0">
