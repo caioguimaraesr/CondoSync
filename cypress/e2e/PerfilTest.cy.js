@@ -62,7 +62,7 @@ Cypress.Commands.add('createSuperUser', (first_name, last_name, username, email,
     cy.get('.sign-up > form > button').click();
 });
 
-describe('Reservar área comum', () => {
+describe('Aba de perfil', () => {
     beforeEach(() => {
         cy.deleteAllApartamentos();
         cy.createApartamentos();
