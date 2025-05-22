@@ -255,7 +255,7 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
     <img src="https://img.shields.io/badge/Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 
-  <a href="#">
+  <a href="https://youtu.be/iSxsYVLjrU8">
     <img src="https://img.shields.io/badge/Protótipo-555C5B?style=for-the-badge&logo=figma&logoColor=white" />
   </a>
   
