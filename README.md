@@ -270,13 +270,12 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 </p>
 
 ## Issue/Bugtracker
+![Issue/Bugtracker](https://github.com/user-attachments/assets/0ccb4c0e-4e53-4c2e-bcd9-d4d9bdbd3ca8)
 
 ## Quadro 
 ![Quadro](https://github.com/user-attachments/assets/860589d5-57a0-4b85-92d4-41fd583156d8)
 
 ## Backlog
 ![Backlog](https://github.com/user-attachments/assets/9fac2e9d-6ca1-474a-82af-80c42c0119fb)
-
-  
 
 </details>
