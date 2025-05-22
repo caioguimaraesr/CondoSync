@@ -121,18 +121,11 @@ class AreaComum(models.Model):
     def __str__(self):
         return self.nome
 
-class Horario(models.Model):
-    hora_inicio = models.TimeField()
-    hora_fim = models.TimeField()
-
-    def __str__(self):
-        return f"{self.hora_inicio} - {self.hora_fim}"
-
 class Reserva(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reservas')
     area = models.ForeignKey(AreaComum, on_delete=models.CASCADE, default=1)
     data = models.DateField()
-    horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
+    horario = models.TimeField()  # Agora é um TimeField simples, não mais uma ForeignKey
 
     criado_em = models.DateTimeField(auto_now_add=True)
 
