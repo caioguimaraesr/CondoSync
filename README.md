@@ -255,11 +255,11 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
     <img src="https://img.shields.io/badge/Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
   </a>
 
-  <a href="https://youtu.be/S4ZlST3puBk?si=0KxUkvqegIc_DyQW">
+  <a href="#">
     <img src="https://img.shields.io/badge/Protótipo-555C5B?style=for-the-badge&logo=figma&logoColor=white" />
   </a>
   
-  <a href="https://youtu.be/H2DUL7uR2l0">
+  <a href="#">
     <img src="https://img.shields.io/badge/Cypress-00800?style=for-the-badge&logo=cypress&logoColor=white" />
   </a>
 
@@ -269,14 +269,13 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 
 </p>
 
-
 ## Issue/Bugtracker
 
 ## Quadro 
-![Quadro](https://github.com/user-attachments/assets/29889b92-d396-4c03-801a-d688bcece598)
+![Quadro](https://github.com/user-attachments/assets/860589d5-57a0-4b85-92d4-41fd583156d8)
 
 ## Backlog
-![Backlog](https://github.com/user-attachments/assets/1b7d108a-c59c-4a87-8c97-d537db136839)
+![Backlog](https://github.com/user-attachments/assets/9fac2e9d-6ca1-474a-82af-80c42c0119fb)
 
   
 
