@@ -38,7 +38,7 @@
                         <select name="horario" id="horario" required>
                             <option value="" disabled selected>Selecione um horário</option>
                             {% for horario in horarios %}
-                                <option value="{{ horario.id }}">{{ horario }}</option>
+                                <option value="{{ horario }}">{{ horario }}</option>
                             {% endfor %}
                         </select>
                     </div>

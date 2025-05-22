@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Funcionario, Visitante, AreaComum, Horario, Reserva, Perfil
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Funcionario, Visitante, AreaComum, Reserva, Perfil
 from django.contrib import messages
 from django.urls import reverse
 from django.utils import timezone
 from django.http import HttpResponseForbidden, JsonResponse
 from django.views.decorators.http import require_POST
 from django.core.exceptions import ValidationError
+from datetime import datetime
 
 # Create your views here.
 def is_admin(user):
@@ -579,17 +580,34 @@ def reservas(request):
 
 def criar_reserva(request, id):
     area = get_object_or_404(AreaComum, id=id)
-    horarios = Horario.objects.all()
+    
+    # Horários fixos como strings
+    horarios = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
 
     if request.method == 'POST':
-        data = request.POST.get('data')
-        horario_id = request.POST.get('horario')
-        horario = get_object_or_404(Horario, id=horario_id)
+        data_str = request.POST.get('data')
+        horario_str = request.POST.get('horario')
 
+        # Validar e converter data
+        try:
+            data = datetime.strptime(data_str, '%Y-%m-%d').date()
+        except (ValueError, TypeError):
+            messages.error(request, 'Data inválida.')
+            return redirect('condosync:criar_reserva', id=area.id)
+
+        # Validar e converter horário
+        try:
+            horario = datetime.strptime(horario_str, '%H:%M').time()
+        except (ValueError, TypeError):
+            messages.error(request, 'Horário inválido.')
+            return redirect('condosync:criar_reserva', id=area.id)
+
+        # Verificar se já existe reserva para área, data e horário
         if Reserva.objects.filter(area=area, data=data, horario=horario).exists():
             messages.error(request, 'Já existe uma reserva para essa área nesse horário.')
             return redirect('condosync:criar_reserva', id=area.id)
-
+        
+        # Criar reserva
         Reserva.objects.create(
             usuario=request.user,
             area=area,
@@ -609,9 +627,10 @@ def horarios_ocupados(request):
     data = request.GET.get('data')
 
     reservas = Reserva.objects.filter(area_id=area_id, data=data)
-    horarios_ocupados = reservas.values_list('horario_id', flat=True)
+    horarios_ocupados = reservas.values_list('horario', flat=True)
+    horarios_ocupados_str = [h.strftime('%H:%M') for h in horarios_ocupados]
 
-    return JsonResponse(list(horarios_ocupados), safe=False)
+    return JsonResponse(horarios_ocupados_str, safe=False)
 
 @login_required
 def listar_reservas_area(request, id):
