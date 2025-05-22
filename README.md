@@ -259,7 +259,7 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
     <img src="https://img.shields.io/badge/Protótipo-555C5B?style=for-the-badge&logo=figma&logoColor=white" />
   </a>
   
-  <a href="#">
+  <a href="https://youtu.be/T5ANoJFxI1A">
     <img src="https://img.shields.io/badge/Cypress-00800?style=for-the-badge&logo=cypress&logoColor=white" />
   </a>
 
