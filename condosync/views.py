@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia
+from .models import Boleto, Apartamento, Aviso, Encomenda, Veiculo, Ocorrencia, Sugestoes, VoceSabia, Funcionario, Visitante, AreaComum, Horario, Reserva, Perfil
 from django.contrib import messages
+from django.urls import reverse
 from django.utils import timezone
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, JsonResponse
+from django.views.decorators.http import require_POST
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 def is_admin(user):
@@ -430,4 +433,346 @@ def voce_sabia(request):
 
     return render(request, 'condosync/pages/voce_sabia.html', {
         'informacao': informacao
+    })
+
+#################################### Funcionarios ##############################################
+@login_required(login_url='userauth:login_register')
+def funcionarios(request):
+    funcionarios = Funcionario.objects.all()
+    return render(request, 'condosync/pages/funcionarios/funcionarios.html', context={
+        'funcionarios': funcionarios
+        })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:funcionarios')
+def create_funcionarios(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cargo = request.POST.get('cargo')
+
+        Funcionario.objects.create(
+            nome=nome,
+            cargo=cargo,
+        )
+
+        return redirect('condosync:funcionarios')  
+
+    return render(request, 'condosync/pages/funcionarios/create_funcionarios.html')
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:funcionarios')
+def edit_funcionarios(request, id):
+    funcionario = get_object_or_404(Funcionario, id=id)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cargo = request.POST.get('cargo')
+
+        funcionario.nome = nome
+        funcionario.cargo = cargo
+        funcionario.save()
+
+        return redirect('condosync:funcionarios')
+
+    return render(request, 'condosync/pages/funcionarios/edit_funcionarios.html', context={
+        'funcionario': funcionario
+        })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:funcionarios')
+def delete_funcionarios(request, id):
+    funcionario = get_object_or_404(Funcionario, id=id)
+
+    if request.method == 'POST':
+        funcionario.delete()
+        return redirect('condosync:funcionarios')
+
+    return render(request, 'condosync/pages/funcionarios/delete_funcionarios.html', context={
+        'funcionario': funcionario
+        })
+
+#################################### Funcionarios ##############################################
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
+def visitantes(request):
+    visitantes = Visitante.objects.all().order_by('-data_visita')
+    return render(request, 'condosync/pages/visitantes/visitantes.html', {
+        'visitantes': visitantes
+    })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
+def create_visitantes(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cpf = request.POST.get('cpf')
+        apartamento_id = request.POST.get('apartamento')
+
+        if Visitante.objects.filter(cpf=cpf).exists():
+            messages.error(request, 'CPF já cadastrado!')
+            return redirect('condosync:create_visitantes')
+        
+        if nome and cpf and apartamento_id:
+            apartamento = Apartamento.objects.get(id=apartamento_id)
+            visitante = Visitante(
+                nome=nome,
+                cpf=cpf,
+                apartamento=apartamento
+            )
+            visitante.save()
+            return redirect('condosync:visitantes') 
+
+    apartamentos = Apartamento.objects.all()
+    return render(request, 'condosync/pages/visitantes/create_visitantes.html', context={
+        'apartamentos': apartamentos
+        })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
+def gerenciar_visitantes(request):
+    visitantes = Visitante.objects.all()
+    return render(request, 'condosync/pages/visitantes/gerenciar_visitantes.html', context={
+        'visitantes': visitantes
+    })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
+def delete_visitantes(request, id):
+    visitante = get_object_or_404(Visitante, id=id)
+
+    if request.method == 'POST':
+        visitante.delete()
+        return redirect('condosync:gerenciar_visitantes')
+
+    return render(request, 'condosync/pages/visitantes/delete_visitantes.html', context={
+        'visitante': visitante
+    })
+
+@login_required(login_url='userauth:login_register')
+@user_passes_test(is_admin, login_url='condosync:home')
+def edit_visitantes(request, id):
+    visitante = get_object_or_404(Visitante, id=id)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cpf = request.POST.get('cpf')
+        apartamento_id = request.POST.get('apartamento')
+
+        visitante.nome = nome
+        visitante.cpf = cpf
+        visitante.apartamento = get_object_or_404(Apartamento, id=apartamento_id)
+        visitante.save()
+
+        return redirect('condosync:gerenciar_visitantes')
+
+    apartamentos = Apartamento.objects.all()
+
+    return render(request, 'condosync/pages/visitantes/edit_visitantes.html', context={
+        'visitante': visitante,
+        'apartamentos': apartamentos
+    })
+
+#################################### Reservas ##############################################
+def reservas(request):
+    areas = AreaComum.objects.all()
+    return render(request, 'condosync/pages/reservas/reservas.html', {'areas': areas})
+
+def criar_reserva(request, id):
+    area = get_object_or_404(AreaComum, id=id)
+    horarios = Horario.objects.all()
+
+    if request.method == 'POST':
+        data = request.POST.get('data')
+        horario_id = request.POST.get('horario')
+        horario = get_object_or_404(Horario, id=horario_id)
+
+        if Reserva.objects.filter(area=area, data=data, horario=horario).exists():
+            messages.error(request, 'Já existe uma reserva para essa área nesse horário.')
+            return redirect('condosync:criar_reserva', id=area.id)
+
+        Reserva.objects.create(
+            usuario=request.user,
+            area=area,
+            data=data,
+            horario=horario
+        )
+        messages.success(request, 'Reserva realizada com sucesso!')
+        return redirect('condosync:reservas')
+
+    return render(request, 'condosync/pages/reservas/criar_reserva.html', {
+        'area': area,
+        'horarios': horarios
+    })
+
+def horarios_ocupados(request):
+    area_id = request.GET.get('area_id')
+    data = request.GET.get('data')
+
+    reservas = Reserva.objects.filter(area_id=area_id, data=data)
+    horarios_ocupados = reservas.values_list('horario_id', flat=True)
+
+    return JsonResponse(list(horarios_ocupados), safe=False)
+
+@login_required
+def listar_reservas_area(request, id):
+    area = get_object_or_404(AreaComum, id=id)
+    reservas = Reserva.objects.filter(area=area).order_by('data', 'horario')
+
+    return render(request, 'condosync/pages/reservas/listar_reservas.html', {
+        'area': area,
+        'reservas': reservas
+    })
+
+@login_required
+def delete_reserva(request, id):
+    reserva = get_object_or_404(Reserva, id=id)
+
+    if request.user == reserva.usuario or request.user.is_superuser:
+        reserva.delete()
+        messages.success(request, "Reserva deletada com sucesso!")
+    else:
+        messages.error(request, "Você não tem permissão para deletar essa reserva.")
+
+    return redirect('condosync:listar_reservas_area', id=reserva.area.id)
+
+################################### Área Comum ########################################
+
+def adicionar_area(request):
+    if request.method == "POST":
+        nome = request.POST.get("nome")
+        icone = request.POST.get("icone")
+        ativo = request.POST.get("ativo") == "on"
+
+        AreaComum.objects.create(
+            nome=nome,
+            icone=icone,
+            ativo=ativo
+        )
+
+        return redirect('condosync:reservas')
+
+    return render(request, 'condosync/pages/reservas/adicionar_area.html')
+
+def gerenciar_area(request):
+    areas = AreaComum.objects.all()
+    return render(request, 'condosync/pages/reservas/gerenciar_area.html', context={
+        'areas': areas
+    })
+
+def delete_area(request, id):
+    area = get_object_or_404(AreaComum, id=id)
+
+    if request.user.is_superuser:
+        area.delete()
+        messages.success(request, "Área comum deletada com sucesso!")
+    else:
+        messages.error(request, "Você não tem permissão para deletar esta área.")
+
+    return redirect('condosync:gerenciar_area')
+
+################################### Área Comum ########################################
+@login_required
+def perfil(request):
+    perfil_usuario, created = Perfil.objects.get_or_create(usuario=request.user)
+    
+    return render(request, 'condosync/pages/perfil/perfil.html', context = {
+        'perfil': perfil_usuario,
+        'active_tab': 'perfil'
+    })
+
+@login_required
+@require_POST
+def editar_perfil_completo(request):
+    perfil = request.user.perfil
+    perfil.telefone = request.POST.get('telefone', '')
+    perfil.instagram = request.POST.get('instagram', '')
+    perfil.bio = request.POST.get('bio', '')
+    perfil.mostrar_telefone = 'mostrar_telefone' in request.POST
+    perfil.mostrar_apartamento = 'mostrar_apartamento' in request.POST
+    
+    if 'foto_perfil' in request.FILES:
+        perfil.foto_perfil = request.FILES['foto_perfil']
+    
+    perfil.save()
+    
+    response_data = {
+        'success': True,
+        'telefone': perfil.telefone,
+        'instagram': perfil.instagram,
+        'bio': perfil.bio,
+        'foto_perfil': perfil.foto_perfil.url if perfil.foto_perfil else None
+    }
+    
+    return JsonResponse(response_data)
+
+@login_required
+def ocorrencias_perfil_ajax(request):
+    ocorrencias = request.user.ocorrencias.all().order_by('-created_at')
+
+    ocorrencias_data = []
+    for ocorrencia in ocorrencias:
+        ocorrencias_data.append({
+            'id': ocorrencia.id,
+            'titulo': ocorrencia.titulo,
+            'desc': ocorrencia.desc,
+            'status': ocorrencia.status,
+            'status_display': ocorrencia.get_status_display(),
+            'created_at': ocorrencia.created_at.strftime("%d/%m/%Y %H:%M"),
+            'edit_url': reverse('condosync:edit_ocorrencias', args=[ocorrencia.id]),
+            'delete_url': reverse('condosync:delete_ocorrencias', args=[ocorrencia.id]),
+        })
+    
+    return JsonResponse({
+        'ocorrencias': ocorrencias_data,
+        'create_url': reverse('condosync:ocorrencias'),
+    })
+
+@login_required
+def encomendas_perfil_ajax(request):
+    encomendas = Encomenda.objects.filter(
+        apartamento__morador=request.user
+    ).order_by('-data_chegada')
+    
+    encomendas_data = []
+    for encomenda in encomendas:
+        encomendas_data.append({
+            'id': encomenda.id,
+            'peso': str(encomenda.peso_kg),
+            'origem': encomenda.origem,
+            'data': encomenda.data_chegada.strftime("%d/%m/%Y %H:%M"),
+            'apartamento': encomenda.apartamento.numero,
+            'edit_url': reverse('condosync:edit_encomendas', args=[encomenda.id]),
+            'delete_url': reverse('condosync:delete_encomendas', args=[encomenda.id]),
+        })
+    
+    return JsonResponse({
+        'encomendas': encomendas_data,
+        'create_url': reverse('condosync:create_encomendas'),
+        'is_admin': request.user.is_superuser
+    })
+
+@login_required
+def reservas_perfil_ajax(request):
+    reservas = Reserva.objects.filter(
+        usuario=request.user,
+        data__gte=timezone.now().date()
+    ).order_by('data', 'horario__hora_inicio')
+    
+    reservas_data = []
+    for reserva in reservas:
+        reservas_data.append({
+            'id': reserva.id,
+            'area': reserva.area.nome,
+            'data': reserva.data.strftime("%d/%m/%Y"),
+            'horario': str(reserva.horario),
+            'edit_url': reverse('condosync:criar_reserva', args=[reserva.area.id]),
+            'delete_url': reverse('condosync:delete_reserva', args=[reserva.id]),
+            'area_id': reserva.area.id,
+            'pode_editar': (reserva.data >= timezone.now().date())  # Só permite editar reservas futuras
+        })
+    
+    return JsonResponse({
+        'reservas': reservas_data,
+        'create_url': reverse('condosync:reservas'),
+        'is_admin': request.user.is_superuser
     })

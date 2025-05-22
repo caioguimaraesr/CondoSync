@@ -28,16 +28,16 @@
             <i class='bx bxs-file-doc' id="icon-boletos"></i>
             <h3>Boletos</h3>
         </a>
-        <a href="#" id="menu-reservas">
+        <a href="{% url "condosync:reservas" %}" id="menu-reservas">
             <i class='bx bx-football' id="icon-reservas"></i>
             <h3>Reservas</h3>
         </a>
-        <a href="#" id="menu-funcionarios">
+        <a href="{% url "condosync:funcionarios" %}" id="menu-funcionarios">
             <i class='bx bxs-user' id="icon-funcionarios"></i>
             <h3>Funcionarios</h3>
         </a>
         {% if user.is_superuser %}
-        <a href="#" id="menu-visitantes">
+        <a href="{% url "condosync:visitantes" %}" id="menu-visitantes">
             <i class='bx bx-door-open' id="icon-visitantes"></i>
             <h3>Visitantes</h3>
         </a>

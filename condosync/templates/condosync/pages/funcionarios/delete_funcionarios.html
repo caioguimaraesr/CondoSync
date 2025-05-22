@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Deletar Funcionário</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-user-x'></i>
+                <h1>FUNCIONÁRIOS</h1>
+            </div>
+            
+            <div class="confirm-box">
+                <h2>Tem certeza que deseja excluir o funcionário {{ funcionario.nome }}?</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-confirm">Sim, excluir</button>
+                    <a href="{% url 'condosync:funcionarios' %}" class="btn btn-cancel">Cancelar</a>
+                </form>
+            </div>
+            
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>

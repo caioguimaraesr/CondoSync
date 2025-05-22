@@ -7,7 +7,7 @@
 <br>
 <p align="center">
   <a href="https://condosyncgg.azurewebsites.net/">
-    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
+    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=githubactions&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
@@ -146,10 +146,11 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
       <img src="https://img.shields.io/badge/Screencast-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
     </a>
     <a href="https://www.figma.com/design/KeudefPeoHdoeixJhfmHkA/CondoSync---Lo-FI?node-id=0-1&t=DnLuCIuR4Qix4GJ4-1">
-    <img src="https://img.shields.io/badge/FIGMA%20-purple?style=for-the-badge&logo=figma&logoColor=white" />
+      <img src="https://img.shields.io/badge/FIGMA%20-purple?style=for-the-badge&logo=figma&logoColor=white" />
     </a>
     <a href="https://docs.google.com/document/d/1mXsX7gAYGkSd2YmE1AfkiUCve0DFyyDYtASklx63PmA/edit?usp=sharing">
-    <img src="https://img.shields.io/badge/Histórias-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
+      <img src="https://img.shields.io/badge/Histórias-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
+    </a>
 </a>
     
   </p>
@@ -168,7 +169,7 @@ Este projeto é licenciado sob a **[MIT License](https://opensource.org/license/
   <br>
   <p align="center">
   <a href="https://condosyncgg.azurewebsites.net/">
-    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
+    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=githubactions&logoColor=white" />
   </a>
   <a href="https://fds-project.atlassian.net/jira/your-work">
     <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
@@ -193,29 +194,36 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 </details>
 
 <details>
-  <summary><h2><strong>Entrega 3</strong></h2></summary>
-  <p align="center">
+<summary><h2><strong>Entrega 3</strong></h2></summary>
+<p align="center">
   <a href="https://condosyncgg.azurewebsites.net/">
-    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
+    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=githubactions&logoColor=white" />
   </a>
-  <a href="https://fds-project.atlassian.net/jira/your-work">
-    <img src="https://img.shields.io/badge/JIRA-0052CC?style=for-the-badge&logo=jira&logoColor=white" />
-  </a>
-  <a href="https://youtu.be/qPmGfqELL7w">
-    <img src="https://img.shields.io/badge/Screencast Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
-  </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/Screencast Protótipo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
-  </a>
-  <a href="https://youtu.be/uKqEkYZwPf8">
-    <img src="https://img.shields.io/badge/Screencast Testes-00FF00?style=for-the-badge" />
-  </a>
+
   <a href="https://docs.google.com/document/d/1km2Mf0yh84b1T0vPWuO5kAGjHTdI2k5dvFS940Ft5VI/edit?usp=sharing">
-  <img src="https://img.shields.io/badge/Relato Programação em Par-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
+    <img src="https://img.shields.io/badge/Relato-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
+  </a>
+  </p>
+
+  <p align="center">
+  <a href="https://youtu.be/qPmGfqELL7w">
+    <img src="https://img.shields.io/badge/Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+  
+  <a href="https://youtu.be/8n-M3dDE_io">
+    <img src="https://img.shields.io/badge/Protótipo-555C5B?style=for-the-badge&logo=figma&logoColor=white" />
+  </a>
+  
+  <a href="https://youtu.be/uKqEkYZwPf8">
+    <img src="https://img.shields.io/badge/Cypress-00800?style=for-the-badge&logo=cypress&logoColor=white" />
+  </a>
+
+  <a href="#">
+    <img src="https://img.shields.io/badge/CI/CD-000000?style=for-the-badge&logo=gnu-bash&logoColor=white" />
+  </a>
+  
 </p>
 
-## Screencast CI/CD
-  
 ## Issue/Bugtracker
 ![Bugtracker/Issue](https://github.com/user-attachments/assets/b9705c44-fde5-4b6c-910a-fd30da645dfd)
 
@@ -229,6 +237,47 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
 </details>
 
 <details>
-  <summary><h2><strong>Entrega 4</strong></h2></summary>
+<summary><h2><strong>Entrega 4</strong></h2></summary>
+<br>
+<p align="center">
+    
+  <a href="https://condosyncgg.azurewebsites.net/">
+    <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
+  </a>
+  
+  <a href="https://docs.google.com/document/d/1km2Mf0yh84b1T0vPWuO5kAGjHTdI2k5dvFS940Ft5VI/edit?usp=sharing">
+    <img src="https://img.shields.io/badge/Relato-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/Deploy-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+
+  <a href="https://youtu.be/S4ZlST3puBk?si=0KxUkvqegIc_DyQW">
+    <img src="https://img.shields.io/badge/Protótipo-555C5B?style=for-the-badge&logo=figma&logoColor=white" />
+  </a>
+  
+  <a href="https://youtu.be/H2DUL7uR2l0">
+    <img src="https://img.shields.io/badge/Cypress-00800?style=for-the-badge&logo=cypress&logoColor=white" />
+  </a>
+
+  <a href="#">
+    <img src="https://img.shields.io/badge/CI/CD-000000?style=for-the-badge&logo=gnu-bash&logoColor=white" />
+  </a>
+
+</p>
+
+
+## Issue/Bugtracker
+
+## Quadro 
+![Quadro](https://github.com/user-attachments/assets/29889b92-d396-4c03-801a-d688bcece598)
+
+## Backlog
+![Backlog](https://github.com/user-attachments/assets/1b7d108a-c59c-4a87-8c97-d537db136839)
+
+  
 
 </details>

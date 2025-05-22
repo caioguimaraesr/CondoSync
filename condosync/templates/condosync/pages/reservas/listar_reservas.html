@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservas - {{ area.nome }}</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-calendar'></i>
+                <h1>Reservas da {{ area.nome }}</h1>
+            </div>
+            
+            {% if reservas %}
+                <table class="tabela-reservas">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Horário</th>
+                            <th>Usuário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reserva in reservas %}
+                            <tr>
+                                <td>{{ reserva.data }}</td>
+                                <td>{{ reserva.horario }}</td>
+                                <td>{{ reserva.usuario.username }}</td>
+                                {% if user.is_superuser or reserva.usuario == user %}  
+                                <td>
+                                    <form method="POST" style="display:inline;">
+                                        {% csrf_token %}
+                                        <a href="{% url 'condosync:delete_reserva' reserva.id %}" 
+                                        onclick="return confirm('Tem certeza que deseja deletar esta reserva?')" 
+                                        class="btn-deletar">
+                                            Deletar
+                                        </a>
+                                    </form>
+                                </td>
+                                {% else %}
+                                <td>
+                                    -
+                                </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p style="margin-top: 1rem;" >Nenhuma reserva registrada para essa área.</p>
+            {% endif %}
+
+            <div style="margin-top: 20px;">
+                <a href="{% url 'condosync:criar_reserva' area.id %}" class="btn btn-cancelar">Voltar</a>
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>

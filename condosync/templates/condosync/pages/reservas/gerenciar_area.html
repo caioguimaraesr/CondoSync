@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Gerenciar Visitantes</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard-area">
+                <div class="dashboard">
+                    <i class='bx bxs-id-card'></i>
+                    <h1>GERENCIAR ÁREAS COMUNS</h1>
+                    {% if user.is_superuser %}
+                        <a href="{% url "condosync:adicionar_area" %}"> + Adicionar</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="gerenciar-veiculos-container">
+                {% for area in areas %}
+                    <div class="veiculos-elements">
+                        <span>{{ area.nome }}</span>
+                        <a href="#" class="deletar-veiculo"
+                        onclick="if(confirm('Tem certeza que deseja deletar esta área?')) { window.location.href='{% url 'condosync:delete_area' area.id %}'; }">
+                            <i class='bx bx-x'></i>
+                        </a>
+                    </div>
+                {% empty %}
+                    <p>Nenhuma area cadastrada.</p>
+                {% endfor %}
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>

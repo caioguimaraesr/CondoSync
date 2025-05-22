@@ -44,5 +44,35 @@ urlpatterns = [
     path('sugestoes/delete/<int:id>', views.delete_sugestoes, name='delete_sugestoes'),
 
     ## Você sabia...?
-    path('voce_sabia/', views.voce_sabia, name='voce_sabia')
+    path('voce_sabia/', views.voce_sabia, name='voce_sabia'),
+
+    ## Funcionarios
+    path('funcionarios/', views.funcionarios, name='funcionarios'),
+    path('funcionarios/create_funcionarios/', views.create_funcionarios, name="create_funcionarios"),
+    path('funcionarios/edit_funcionarios/<int:id>/', views.edit_funcionarios, name="edit_funcionarios"),
+    path('funcionarios/delete_funcionarios/<int:id>/', views.delete_funcionarios, name="delete_funcionarios"),
+
+    ## Visitantes
+    path('visitantes/', views.visitantes, name='visitantes'),
+    path('visitantes/create_visitantes/', views.create_visitantes, name='create_visitantes'),
+    path('visitantes/gerenciar_visitantes/', views.gerenciar_visitantes, name='gerenciar_visitantes'),
+    path('visitantes/delete_visitantes/<int:id>', views.delete_visitantes, name='delete_visitantes'),
+    path('visitantes/edit_visitantes/<int:id>', views.edit_visitantes, name='edit_visitantes'),
+
+    ## Reserva de Áreas Comuns
+    path('reservas/', views.reservas, name='reservas'),
+    path('reservas/criar_reserva/<int:id>', views.criar_reserva, name='criar_reserva'),
+    path('reservas/horarios_ocupados/', views.horarios_ocupados, name='horarios_ocupados'),
+    path('visitantes/gerenciar_area/', views.gerenciar_area, name='gerenciar_area'),
+    path('reservas/listar/<int:id>/', views.listar_reservas_area, name='listar_reservas_area'),
+    path('reservas/deletar/<int:id>/', views.delete_reserva, name='delete_reserva'),
+    path('reservas/adicionar_area/', views.adicionar_area, name='adicionar_area'),
+    path('areas-comuns/delete/<int:id>/', views.delete_area, name='delete_area'),
+
+    ## Perfil
+    path('perfil/', views.perfil, name='perfil'),
+    path('editar-perfil-completo/', views.editar_perfil_completo, name='editar_perfil_completo'),
+    path('perfil/ocorrencias/ajax/', views.ocorrencias_perfil_ajax, name='ocorrencias_perfil_ajax'),
+    path('perfil/encomendas/ajax/', views.encomendas_perfil_ajax, name='encomendas_perfil_ajax'),
+    path('perfil/reservas/ajax/', views.reservas_perfil_ajax, name='reservas_perfil_ajax'),
 ]

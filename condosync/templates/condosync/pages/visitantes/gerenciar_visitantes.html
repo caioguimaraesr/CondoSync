@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CondoSync | Gerenciar Visitantes</title>
+    <link rel="stylesheet" href="{% static 'condosync/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <!-- side bar section start -->
+        {% include "condosync/partials/sidebar.html" %}
+        <!-- side bar section end -->
+
+        <!-- main section start -->
+        <main>
+            <div class="dashboard">
+                <i class='bx bxs-id-card'></i>
+                <h1>GERENCIAR VISITANTES</h1>
+            </div>
+            
+            <div class="gerenciar-veiculos-container">
+                {% for visitante in visitantes %}
+                    <div class="veiculos-elements">
+                        <span>{{ visitante.nome }} - CPF: {{ visitante.cpf }}</span>
+                        <a href="{% url "condosync:edit_visitantes" visitante.id %}" class="editar-veiculo">
+                            <i class='bx bxs-pencil'></i>
+                        </a>
+                        <a href="{% url "condosync:delete_visitantes" visitante.id %}" class="deletar-veiculo">
+                            <i class='bx bx-x'></i>
+                        </a>
+                    </div>
+                {% empty %}
+                    <p>Nenhum visitante cadastrado.</p>
+                {% endfor %}
+            </div>
+        </main>
+        <!-- main section end -->
+
+        <!-- right section start -->
+        {% include "condosync/partials/right_section.html" %}
+        <!-- right section end -->
+    </div>
+
+    <script src="{% static 'condosync/js/scripts.js' %}"></script>
+</body>
+</html>
