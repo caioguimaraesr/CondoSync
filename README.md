@@ -201,7 +201,7 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
   </a>
 
   <a href="https://docs.google.com/document/d/1km2Mf0yh84b1T0vPWuO5kAGjHTdI2k5dvFS940Ft5VI/edit?usp=sharing">
-    <img src="https://img.shields.io/badge/Relato-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
+    <img src="https://img.shields.io/badge/Programação em Par-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
   </a>
   </p>
 
@@ -246,7 +246,7 @@ Decidimos não realizar a programação em par em nosso projeto Django devido à
   </a>
   
   <a href="https://docs.google.com/document/d/1km2Mf0yh84b1T0vPWuO5kAGjHTdI2k5dvFS940Ft5VI/edit?usp=sharing">
-    <img src="https://img.shields.io/badge/Relato-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
+    <img src="https://img.shields.io/badge/Programação em Par-blue?style=for-the-badge&logo=google-docs&logoColor=white" />
   </a>
 </p>
 
